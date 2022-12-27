@@ -1,6 +1,7 @@
 package com.example.album_project.service;
 
 import com.example.album_project.beans.Client;
+import com.example.album_project.beans.Credentials;
 import com.example.album_project.beans.Photo;
 import com.example.album_project.beans.Photographer;
 import com.example.album_project.enums.ErrMsg;
@@ -21,7 +22,7 @@ import java.util.List;
 @Slf4j
 @RequiredArgsConstructor
 @Transactional
-public class ClientService {
+public class ClientService extends AppUserService {
 
 
     private int id = -1;
@@ -31,7 +32,7 @@ public class ClientService {
 
     private final ClientRepository clientRepository;
 
-    public Client getDetails(int id) throws ClientException {
+    public Client getDetails() throws ClientException {
         return clientRepository.findById(id).orElseThrow(()-> new ClientException(ErrMsg.ID_NOT_FOUND));
     }
 
@@ -39,6 +40,10 @@ public class ClientService {
          if(clientRepository.findIdByEmail(email).isPresent())
              this.id = clientRepository.findIdByEmail(email).orElseThrow(()-> new ClientException(ErrMsg.EMAIL_NOT_FOUND));
          return id;
+    }
+
+    public void register(Client client){
+         clientRepository.save(client);
     }
 
     public Photo getOnePhoto(int photoId) throws ClientException {

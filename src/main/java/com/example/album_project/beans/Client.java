@@ -20,6 +20,7 @@ public class Client {
 
     @Id
     @Setter(AccessLevel.NONE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String firstName;
     private String lastName;
@@ -30,4 +31,11 @@ public class Client {
     @JsonIgnore
     @ToString.Exclude
     private Set<Photo> photos = new HashSet<>();
+
+    public Client(String firstName, String lastName, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+
+    }
 }

@@ -22,6 +22,19 @@ public class Art {
             "                                                \n" +
             "                                                ";
 
+    public static final String auth = "" +
+            "                                               \n" +
+            "                                  88           \n" +
+            "                           ,d     88           \n" +
+            "                           88     88           \n" +
+            ",adPPYYba,  88       88  MM88MMM  88,dPPYba,   \n" +
+            "\"\"     `Y8  88       88    88     88P'    \"8a  \n" +
+            ",adPPPPP88  88       88    88     88       88  \n" +
+            "88,    ,88  \"8a,   ,a88    88,    88       88  \n" +
+            "`\"8bbdP\"Y8   `\"YbbdP'Y8    \"Y888  88       88  \n" +
+            "                                               \n" +
+            "                                               ";
+
 }
 
 

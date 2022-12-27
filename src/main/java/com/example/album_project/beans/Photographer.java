@@ -16,6 +16,7 @@ import java.util.Set;
 public class Photographer {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Setter(AccessLevel.NONE)
     private int id;
     private String firstName;
@@ -27,4 +28,9 @@ public class Photographer {
     @JsonIgnore
     private Set<Photo> photos = new HashSet<>();
 
+    public Photographer(String firstName, String lastName, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+    }
 }

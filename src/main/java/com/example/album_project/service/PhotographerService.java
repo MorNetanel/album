@@ -1,5 +1,6 @@
 package com.example.album_project.service;
 
+import com.example.album_project.beans.Client;
 import com.example.album_project.beans.Photo;
 import com.example.album_project.beans.Photographer;
 import com.example.album_project.enums.ErrMsg;
@@ -24,14 +25,14 @@ import java.util.stream.Collectors;
 @Slf4j
 @RequiredArgsConstructor
 @Transactional
-public class PhotographerService {
+public class PhotographerService extends AppUserService {
 
     private int id = -1;
 
     private final PhotoRepository photoRepository;
     private final PhotographerRepository photographerRepository;
 
-    public Photographer getDetails(int id) throws PhotographerException {
+    public Photographer getDetails() throws PhotographerException {
         log.info("get details for photographer id {}", id);
         return photographerRepository.findById(id).orElseThrow(()->
                 new PhotographerException(ErrMsg.ID_NOT_FOUND));
@@ -41,6 +42,10 @@ public class PhotographerService {
         if(photographerRepository.findIdByEmail(email).isPresent())
             this.id = photographerRepository.findIdByEmail(email).orElseThrow(()-> new ClientException(ErrMsg.EMAIL_NOT_FOUND));
         return id;
+    }
+
+    public void register(Photographer photographer){
+         photographerRepository.save(photographer);
     }
 
     public Photo addPhoto( Photo photo) throws PhotographerException {

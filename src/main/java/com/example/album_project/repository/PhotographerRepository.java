@@ -14,5 +14,6 @@ public interface PhotographerRepository extends JpaRepository<Photographer, Inte
     @Query(value = "select * from photographers where first_name = ?1 and last_name = ?2", nativeQuery = true)
     Photographer findByFirstNameAndLastName(String firstName, String lastName);
 
+    @Query(value = "select id from photographers where email = ?1", nativeQuery = true)
     Optional<Integer> findIdByEmail(String email);
 }

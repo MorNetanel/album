@@ -15,8 +15,11 @@ public enum ErrMsg {
 
     PHOTO_PURCHASE_UNAVAILABLE("Unable to complete purchase"),
 
-    EMAIL_NOT_FOUND("Email not found");
+    EMAIL_NOT_FOUND("Email not found"),
 
+    LOGIN_FAILURE("Failed to login"),
+
+    REGISTRATION_FAILURE("Failed to register");
 
 
 
