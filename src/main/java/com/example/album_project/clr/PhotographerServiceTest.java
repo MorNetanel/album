@@ -9,6 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Component
@@ -28,8 +29,6 @@ public class PhotographerServiceTest implements CommandLineRunner {
 //        System.out.println(Art.photographerService);
 
 
-
-//        photographerService.getAllPhotographerPhotos().forEach(photo -> System.out.println(photo));
 
 
 }catch (Exception e){

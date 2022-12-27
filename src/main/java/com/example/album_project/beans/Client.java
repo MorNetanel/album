@@ -1,5 +1,6 @@
 package com.example.album_project.beans;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -26,5 +27,7 @@ public class Client {
     private String email;
 
     @ManyToMany
+    @JsonIgnore
+    @ToString.Exclude
     private Set<Photo> photos = new HashSet<>();
 }

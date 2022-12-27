@@ -17,6 +17,8 @@ public class AppUser {
     private String lastName;
     @Indexed(unique = true)
     private String userName;
+    @Indexed(unique = true)
+    private String email;
     private String password;
 
 }

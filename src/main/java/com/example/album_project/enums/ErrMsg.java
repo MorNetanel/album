@@ -7,7 +7,20 @@ public enum ErrMsg {
 
     ID_NOT_FOUND("Id not found"),
 
-    PHOTO_ACTION_FAILURE("Failed to complete photo action");
+    PHOTO_NOT_FOUND_BY_NAME("Photo not found by name"),
+
+    PHOTOGRAPHER_NOT_FOUND_BY_NAME("Photographer not found by name"),
+
+    PHOTO_ACTION_FAILURE("Failed to complete photo action"),
+
+    PHOTO_PURCHASE_UNAVAILABLE("Unable to complete purchase"),
+
+    EMAIL_NOT_FOUND("Email not found");
+
+
+
+
+
 
     private String description;
 

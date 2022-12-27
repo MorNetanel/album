@@ -1,9 +1,11 @@
 package com.example.album_project.beans;
 
 import com.example.album_project.enums.PhotoType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -17,9 +19,9 @@ public class Photo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(AccessLevel.NONE)
     private int id;
-    @Column(nullable = true)
+    @Column(nullable = true, unique = true)
     private String name;
-    private LocalDateTime dateTime;
+    private LocalDate dateTime;
 
     private String image;
     private double price;
@@ -29,6 +31,7 @@ public class Photo {
     private String location;
     @ManyToOne
     @ToString.Exclude
+    @JsonIgnore
     private Photographer photographer;
 
     public Photo(String name, String image, double price, PhotoType photoType, String location) {
