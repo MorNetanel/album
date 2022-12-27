@@ -1,7 +1,9 @@
 package com.example.album_project.clr;
 
+import com.example.album_project.auth.LoginManager;
 import com.example.album_project.beans.Photo;
 import com.example.album_project.enums.PhotoType;
+import com.example.album_project.service.ClientService;
 import com.example.album_project.service.PhotographerService;
 import com.example.album_project.util.Art;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +20,8 @@ public class PhotographerServiceTest implements CommandLineRunner {
 
 
     private final PhotographerService photographerService;
+    private final LoginManager loginManager;
+
 
     @Override
     public void run(String... args) throws Exception {
@@ -27,6 +31,9 @@ public class PhotographerServiceTest implements CommandLineRunner {
 
 
 //        System.out.println(Art.photographerService);
+
+
+
 
 
 

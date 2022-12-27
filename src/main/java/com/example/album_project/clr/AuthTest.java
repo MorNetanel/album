@@ -32,7 +32,7 @@ public class AuthTest implements CommandLineRunner {
 try {
 
 
-    System.out.println(Art.auth);
+//    System.out.println(Art.auth);
 
     //client login
 //    AppUserService appUserService = loginManager.login("username", "123");
@@ -46,9 +46,11 @@ try {
 //    }
 
     //register
-    Credentials credentials = new Credentials("first", "last", "user", "test"
-    , "pass", AppUserType.PHOTOGRAPHER);
-    registrationManager.register(credentials);
+//    Credentials credentials = new Credentials("4", "4", "4", "4@4"
+//    , "pass",
+//            AppUserType.PHOTOGRAPHER);
+//
+//    registrationManager.register(credentials);
 
 
 }catch (Exception e){

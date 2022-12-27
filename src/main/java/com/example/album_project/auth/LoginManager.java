@@ -34,7 +34,6 @@ public class LoginManager {
 
 
 
-
         switch (appUser.getAppUserType()){
             case CLIENT :
                 ClientService clientService = applicationContext.getBean(ClientService.class);

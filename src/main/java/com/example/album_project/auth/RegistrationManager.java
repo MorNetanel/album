@@ -33,7 +33,7 @@ public class RegistrationManager {
     public AppUserService register(Credentials credentials) throws LoginException, ClientException {
         //check if user is in the data base
         if (appUserRepository.findAppUserByEmail(credentials.getEmail()).isPresent()
-                &&
+                ||
                 appUserRepository.findAppUserByUsername(credentials.getUsername()).isPresent()){
         throw new LoginException(ErrMsg.REGISTRATION_FAILURE);
     }

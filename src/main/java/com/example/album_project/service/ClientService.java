@@ -85,12 +85,12 @@ public class ClientService extends AppUserService {
         } else throw new ClientException(ErrMsg.PHOTOGRAPHER_NOT_FOUND_BY_NAME);
     }
 
-    public void purchasePhoto( int photoId) throws ClientException {
-        if (!isPhotoPurchasedByClient( photoId)) {
-            log.info("purchase photo id {} by client id {}", photoId,id);
+    public void purchasePhoto(Photo photo) throws ClientException {
+        if (!isPhotoPurchasedByClient( photo.getId())) {
+            log.info("purchase photo id {} by client id {}", photo.getId(),id);
 
 
-            photoRepository.purchasePhoto(id, photoId);
+            photoRepository.purchasePhoto(id, photo.getId());
         }
                 else throw new ClientException(ErrMsg.PHOTO_PURCHASE_UNAVAILABLE);
     }
