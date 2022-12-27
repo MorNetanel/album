@@ -9,6 +9,7 @@ import com.example.album_project.exceptions.ClientException;
 import com.example.album_project.exceptions.PhotographerException;
 import com.example.album_project.repository.PhotoRepository;
 import com.example.album_project.repository.PhotographerRepository;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,7 @@ import java.util.stream.Collectors;
 @Transactional
 public class PhotographerService extends AppUserService {
 
+    @Getter
     private int id = -1;
 
     private final PhotoRepository photoRepository;
