@@ -71,9 +71,10 @@ public class PhotographerService extends AppUserService {
         return photoRepository.getPhotoByIdAndPhotographerId(photoId, id).orElseThrow(()-> new PhotographerException(ErrMsg.PHOTO_ACTION_FAILURE));
     }
 
-    public void deletePhoto(int photoId) throws PhotographerException {
+    public boolean deletePhoto(int photoId) throws PhotographerException {
          if (photoRepository.deletePhotoByIdAndPhotographerId(photoId, id) >0)
-             log.info("delete photo id : {}" , photoId);
+         {log.info("delete photo id : {}" , photoId);
+         return true;}
          else {
              log.error("failed to delete");
              throw new    PhotographerException(ErrMsg.PHOTO_ACTION_FAILURE);

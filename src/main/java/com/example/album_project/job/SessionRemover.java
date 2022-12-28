@@ -25,11 +25,7 @@ public class SessionRemover {
         Date now = new Date(System.currentTimeMillis());
         //remove session
         sessions.entrySet().removeIf(session -> now.getTime() > session.getValue().getLastActive() + (1000 *10));
-        //print all sessions
-        System.out.println(sessions.size());
 
-        //print if hashmap is empty
-        System.out.println(sessions.isEmpty()?"empty":"not empty");
     }
 
 

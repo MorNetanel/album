@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -87,14 +88,17 @@ public class ClientService extends AppUserService {
         } else throw new ClientException(ErrMsg.PHOTOGRAPHER_NOT_FOUND_BY_NAME);
     }
 
-    public void purchasePhoto(Photo photo) throws ClientException {
+    public Optional<Photo> purchasePhoto(Photo photo) throws ClientException {
         if (!isPhotoPurchasedByClient( photo.getId())) {
             log.info("purchase photo id {} by client id {}", photo.getId(),id);
 
 
             photoRepository.purchasePhoto(id, photo.getId());
+            if (isPhotoPurchasedByClient(photo.getId()))
+                return Optional.of(photo);
         }
                 else throw new ClientException(ErrMsg.PHOTO_PURCHASE_UNAVAILABLE);
+                return Optional.empty();
     }
 
 
