@@ -3,6 +3,7 @@ package com.example.album_project.controllers;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.example.album_project.auth.LoginManager;
+import com.example.album_project.auth.RegistrationManager;
 import com.example.album_project.beans.Credentials;
 import com.example.album_project.beans.UserSession;
 import com.example.album_project.enums.AppUserType;
@@ -29,6 +30,7 @@ import java.util.HashMap;
 public class AuthController {
 
     private LoginManager loginManager;
+    private RegistrationManager registrationManager;
     protected HashMap<String, UserSession> sessions;
 
 
@@ -64,6 +66,37 @@ public class AuthController {
         return ResponseEntity.accepted().body(token);
     }
 
+    @PostMapping("/register")
+    public ResponseEntity<String> register(@RequestBody Credentials credentials) throws LoginException, ClientException {
+        AppUserService appUserService = registrationManager.register(credentials);
+        String token = "";
+        switch (credentials.getAppUserType()){
+            case PHOTOGRAPHER :
+                 token = createToken(credentials.getUsername(), credentials.getFirstName(),
+                        credentials.getLastName(), credentials.getEmail(), AppUserType.PHOTOGRAPHER,
+                        ((PhotographerService) appUserService).getId());
+                log.info("put in sessions new app user service");
+                sessions.put(token, new UserSession(appUserService, System.currentTimeMillis()));
+                return ResponseEntity.accepted().body(token);
+
+            case CLIENT:
+               
+                 token = createToken(credentials.getUsername(), credentials.getFirstName(),
+                        credentials.getLastName(), credentials.getEmail(), AppUserType.CLIENT,
+                        ((ClientService) appUserService).getId());
+
+
+                log.info("put in sessions new app user service");
+                sessions.put(token, new UserSession(appUserService, System.currentTimeMillis()));
+
+
+                return ResponseEntity.accepted().body(token);
+
+        }
+        return null;
+
+    }
+
 
 
 
@@ -73,7 +106,7 @@ public class AuthController {
     private String createToken(String username, String firstName, String lastName,
                                String email, AppUserType appUserType,  int id){
         String token = JWT.create()
-                .withIssuer("NatiMorNatiMorNatiMorNatiMorNatiMorNatiMorNatiMorNatiMorNatiMor")
+                .withIssuer("NatiMor")
                 .withIssuedAt(new Date())
                 .withClaim("id", id)
                 .withClaim("username", username)
