@@ -10,6 +10,7 @@ import org.springframework.data.mongodb.core.index.Indexed;
 public class Credentials {
 
 
+
     private String firstName;
     private String lastName;
     private String username;

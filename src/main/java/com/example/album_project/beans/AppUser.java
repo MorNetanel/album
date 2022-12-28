@@ -6,6 +6,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 @Document
@@ -15,12 +16,17 @@ public class AppUser {
     @Id
     private UUID uuid;
     private String firstName;
+    @NotNull(message = "User's last name must not be null")
     private String lastName;
     @Indexed(unique = true)
+    @NotNull(message = "User's username must not be null")
     private String username;
     @Indexed(unique = true)
+    @NotNull(message = "User's email must not be null")
     private String email;
+    @NotNull(message = "User's password must not be null")
     private String password;
+    @NotNull(message = "User's type must not be null")
     private AppUserType appUserType;
 
     public AppUser(UUID uuid, String firstName, String lastName, String username, String email, String password, AppUserType appUserType) {

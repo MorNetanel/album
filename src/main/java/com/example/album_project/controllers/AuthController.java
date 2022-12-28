@@ -7,6 +7,7 @@ import com.example.album_project.auth.RegistrationManager;
 import com.example.album_project.beans.Credentials;
 import com.example.album_project.beans.UserSession;
 import com.example.album_project.enums.AppUserType;
+import com.example.album_project.enums.ErrMsg;
 import com.example.album_project.exceptions.ClientException;
 import com.example.album_project.exceptions.LoginException;
 import com.example.album_project.exceptions.PhotographerException;
@@ -27,6 +28,7 @@ import java.util.HashMap;
 @RequestMapping("/auth")
 @AllArgsConstructor
 @Slf4j
+@CrossOrigin
 public class AuthController {
 
     private LoginManager loginManager;
@@ -68,35 +70,40 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody Credentials credentials) throws LoginException, ClientException {
-        AppUserService appUserService = registrationManager.register(credentials);
-        String token = "";
-        switch (credentials.getAppUserType()){
-            case PHOTOGRAPHER :
-                 token = createToken(credentials.getUsername(), credentials.getFirstName(),
-                        credentials.getLastName(), credentials.getEmail(), AppUserType.PHOTOGRAPHER,
-                        ((PhotographerService) appUserService).getId());
-                log.info("put in sessions new app user service");
-                sessions.put(token, new UserSession(appUserService, System.currentTimeMillis()));
-                return ResponseEntity.accepted().body(token);
 
-            case CLIENT:
-               
-                 token = createToken(credentials.getUsername(), credentials.getFirstName(),
-                        credentials.getLastName(), credentials.getEmail(), AppUserType.CLIENT,
-                        ((ClientService) appUserService).getId());
+        if (!isCredentialsValid(credentials)) {
+            log.error("credentials not valid for email: {}" , credentials.getEmail());
+            throw new LoginException(ErrMsg.REGISTRATION_FAILURE);
+        } else {
+            AppUserService appUserService = registrationManager.register(credentials);
+            String token = "";
+            switch (credentials.getAppUserType()) {
+                case PHOTOGRAPHER:
+                    token = createToken(credentials.getUsername(), credentials.getFirstName(),
+                            credentials.getLastName(), credentials.getEmail(), AppUserType.PHOTOGRAPHER,
+                            ((PhotographerService) appUserService).getId());
+                    log.info("put in sessions new app user service");
+                    sessions.put(token, new UserSession(appUserService, System.currentTimeMillis()));
+                    return ResponseEntity.accepted().body(token);
+
+                case CLIENT:
+
+                    token = createToken(credentials.getUsername(), credentials.getFirstName(),
+                            credentials.getLastName(), credentials.getEmail(), AppUserType.CLIENT,
+                            ((ClientService) appUserService).getId());
 
 
-                log.info("put in sessions new app user service");
-                sessions.put(token, new UserSession(appUserService, System.currentTimeMillis()));
+                    log.info("put in sessions new app user service");
+                    sessions.put(token, new UserSession(appUserService, System.currentTimeMillis()));
 
 
-                return ResponseEntity.accepted().body(token);
+                    return ResponseEntity.accepted().body(token);
+
+            }
+            return null;
 
         }
-        return null;
-
     }
-
 
 
 
@@ -114,8 +121,23 @@ public class AuthController {
                 .withClaim("last name", lastName)
                 .withClaim("email", email)
                 .withClaim("client type", appUserType.toString())
-                .sign(Algorithm.HMAC256("javafullstackdeveloper"));
+                .sign(Algorithm.HMAC256("NatiMor***javafullstackdeveloper"));
         return token;
+    }
+
+    private boolean isCredentialsValid(Credentials credentials){
+        if (credentials == null|| credentials.getFirstName() == null ||credentials.getLastName() == null
+        ||credentials.getEmail() == null || credentials.getUsername() == null
+        ||credentials.getPassword() == null || credentials.getAppUserType() == null){
+            log.error("credentials null");
+            return false;}
+        else
+
+            return credentials.getFirstName().length() >= 2 && credentials.getLastName().length() >= 2
+                && credentials.getEmail().length() >= 4 && credentials.getEmail().contains("@") &&
+                credentials.getPassword().length() >= 4 && credentials.getUsername().length() >= 4 &&
+                    (credentials.getAppUserType().equals(AppUserType.CLIENT) ||
+                credentials.getAppUserType().equals(AppUserType.PHOTOGRAPHER));
     }
 
 

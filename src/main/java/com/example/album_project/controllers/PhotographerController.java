@@ -24,6 +24,11 @@ public class PhotographerController {
         return Optional.of(photographerService.getDetails());
     }
 
+    @GetMapping
+    public List<Photo> getAllPhotos(){
+        return photographerService.getAllPhotographerPhotos();
+    }
+
     @PostMapping
     public Optional<Photo> addPhoto(@RequestBody Photo photo) throws PhotographerException {
         return Optional.of(photographerService.addPhoto(photo));
