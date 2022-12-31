@@ -98,6 +98,9 @@ public class PhotographerService extends AppUserService {
                         &&
                         photo.getDateTime().getDayOfMonth()==photoBeforeUpdate.getDateTime().getDayOfMonth()
         ) {
+            photo.setPhotographer(photographerRepository.findById(id).orElseThrow(()->new PhotographerException(ErrMsg.ID_NOT_FOUND)));
+
+
             log.info("update {} photo by photographer : {}", photo.getName(), photo.getPhotographer().getFirstName());
             return Optional.of(photoRepository.save(photo));
         } else {

@@ -46,6 +46,7 @@ public class PhotographerController {
 
     @PutMapping
     public Optional<Photo> updatePhoto(@RequestBody Photo photo) throws PhotographerException {
+        System.out.println("photographer controller update photo");
         return photographerService.updatePhoto(photo);
     }
 
