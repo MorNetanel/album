@@ -7,6 +7,7 @@ import com.example.album_project.beans.Photographer;
 import com.example.album_project.enums.ErrMsg;
 import com.example.album_project.exceptions.ClientException;
 import com.example.album_project.exceptions.LoginException;
+import com.example.album_project.exceptions.PhotographerException;
 import com.example.album_project.repository.AppUserRepository;
 import com.example.album_project.service.AppUserService;
 import com.example.album_project.service.ClientService;
@@ -30,7 +31,7 @@ public class RegistrationManager {
     private final LoginManager loginManager;
 
     @Transactional
-    public AppUserService register(Credentials credentials) throws LoginException, ClientException {
+    public AppUserService register(Credentials credentials) throws LoginException, ClientException, PhotographerException {
         //check if user is in the data base
         System.out.println("registration manager credentials" + credentials.getEmail());
         if (appUserRepository.findAppUserByEmail(credentials.getEmail()).isPresent()

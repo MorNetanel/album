@@ -69,7 +69,7 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<String> register(@RequestBody Credentials credentials) throws LoginException, ClientException {
+    public ResponseEntity<String> register(@RequestBody Credentials credentials) throws LoginException, ClientException, PhotographerException {
 
         if (!isCredentialsValid(credentials)) {
             log.error("credentials not valid for email: {}" , credentials.getEmail());

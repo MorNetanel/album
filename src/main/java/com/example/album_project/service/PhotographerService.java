@@ -46,7 +46,9 @@ public class PhotographerService extends AppUserService {
         return id;
     }
 
-    public void register(Photographer photographer){
+    public void register(Photographer photographer) throws PhotographerException {
+        if (photographerRepository.existsById(photographer.getId()))
+            throw new PhotographerException(ErrMsg.REGISTRATION_FAILURE);
          photographerRepository.save(photographer);
     }
 
