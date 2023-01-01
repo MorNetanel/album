@@ -101,6 +101,11 @@ public class ClientService extends AppUserService {
                 return Optional.empty();
     }
 
+    public List<Photo> getAllPurchasedPhotos(){
+
+        return photoRepository.getAllPurchasedPhotosByClientId(id);
+    }
+
 
     public boolean isPhotoPurchasedByClient( int photoId) {
 

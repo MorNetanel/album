@@ -38,6 +38,9 @@ public interface PhotoRepository extends JpaRepository<Photo, Integer> {
     @Query(value = "insert into clients_photos values (?1, ?2)", nativeQuery = true)
     void purchasePhoto(int clientId, int PhotoId);
 
+    @Query(value = "select * from photos join clients_photos on photos.id = clients_photos.photos_id where clients_photos.client_id = ?1", nativeQuery = true)
+    List<Photo>getAllPurchasedPhotosByClientId(int clientId);
+
 
 
 

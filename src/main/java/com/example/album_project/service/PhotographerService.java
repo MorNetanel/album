@@ -134,6 +134,8 @@ public class PhotographerService extends AppUserService {
 
     public Photo getPhotoByName(String name) throws PhotographerException {
         log.info("get photo by name {}" , name);
+
+        System.out.println(photoRepository.getPhotoByName(name));
         return photoRepository.getPhotoByName(name).filter(photo -> photo.getPhotographer().getId() == id).orElseThrow(
                 ()-> new PhotographerException(ErrMsg.PHOTO_ACTION_FAILURE)
         );

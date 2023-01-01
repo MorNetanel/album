@@ -66,7 +66,7 @@ public class PhotographerController {
     }
 
 
-    @GetMapping("name")
+    @GetMapping("/name")
     public Optional<Photo> getPhotographerPhotoByName(@RequestParam String name) throws PhotographerException {
         return Optional.of(photographerService.getPhotoByName(name));
     }

@@ -66,8 +66,13 @@ public class ClientController {
     @PostMapping
     public Optional<Photo> purchasePhoto(@RequestBody Photo photo) throws ClientException {
         return clientService.purchasePhoto(photo);
+
     }
 
+    @GetMapping("/purchased")
+    public List<Photo> getAllPurchasedPhotos(){
+        return clientService.getAllPurchasedPhotos();
+    }
 
 
 }

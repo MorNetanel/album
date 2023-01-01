@@ -33,7 +33,7 @@ public class RegistrationManager {
     @Transactional
     public AppUserService register(Credentials credentials) throws LoginException, ClientException, PhotographerException {
         //check if user is in the data base
-        System.out.println("registration manager credentials" + credentials.getEmail());
+
         if (appUserRepository.findAppUserByEmail(credentials.getEmail()).isPresent()
                 ||
                 appUserRepository.findAppUserByUsername(credentials.getUsername()).isPresent()){
