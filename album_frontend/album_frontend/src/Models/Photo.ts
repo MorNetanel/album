@@ -2,11 +2,11 @@ import PhotographerModel from "./Photographer";
 
 
 
-export class PhotoModel{
+   export class PhotoModel{
     public id :number;
     public name:string;
     public dateTime: Date;
-    public image:File | FileList;
+    public image:File | FileList | string;
     public price :number;
     public photoType: PhotoType;
     public location: string;
@@ -32,3 +32,5 @@ export enum PhotoType{
     DOCUMENTARY, SPORTS, FASHION, COMMERCIAL, STREET, EVENT, TRAVEL, PET,PRODUCT, FOOD, ARCHITECTURE
 
 }
+
+export default PhotoModel;
