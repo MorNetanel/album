@@ -9,7 +9,7 @@ export class PhotosState{
 }
 
 export enum PhotosActionType{
-    FetchPhotos, AddPhoto, EditPhoto, DeletePhoto
+    FetchPhotos, AddPhoto, EditPhoto, DeletePhoto, ClearPhotos
 }
 
 export interface PhotosAction {
@@ -31,6 +31,10 @@ export function createEditAction(photo:PhotoModel){
 
 export function createDeleteAction(id: number){
     return{type:PhotosActionType.DeletePhoto, payload:id}
+}
+
+export function createClearAction(){
+    return{type:PhotosActionType.ClearPhotos}
 }
 
 export function photosReducer(currentState = new PhotosState(), action:PhotosAction):PhotosState{
@@ -56,6 +60,10 @@ export function photosReducer(currentState = new PhotosState(), action:PhotosAct
             const indexToDelete = newState.photos.findIndex(photo => photo.id = action.payload.id);
             if (indexToDelete>0)
             newState.photos.splice(indexToDelete, 1);
+        break;
+
+        case PhotosActionType.ClearPhotos:
+            newState.photos = [];
         break;
     }
 
