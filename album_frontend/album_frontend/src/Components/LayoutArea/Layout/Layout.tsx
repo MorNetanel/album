@@ -2,6 +2,7 @@ import Heading from "../Heading/Heading";
 import Menu from "../Menu/Menu";
 import Routing from "../Routing/Routing";
 import "./Layout.css";
+import backgroundPhoto from "Mountain.webp"
 
 function Layout(): JSX.Element {
     return (
@@ -9,6 +10,7 @@ function Layout(): JSX.Element {
 			<header>
                 <Heading/>
             </header>
+            
             <nav>
                 <Menu />
             </nav>

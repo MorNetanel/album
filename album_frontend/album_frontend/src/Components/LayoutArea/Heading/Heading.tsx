@@ -4,7 +4,7 @@ function Heading(): JSX.Element {
     return (
         <div className="Heading">
 			<div>
-                <h1>Album</h1>
+                <h1>Album Project</h1>
             </div>
         </div>
     );
