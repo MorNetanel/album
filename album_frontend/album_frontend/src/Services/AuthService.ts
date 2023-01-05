@@ -1,8 +1,7 @@
 import axios from "axios";
 import { AppUserModel } from "../Models/AppUser";
 import { authStore, loginAction, logoutAction } from "../Redux/AuthState";
-import { createClearPurchaseAction, createPurchasePhotoAction, purchasedPhotosStore } from "../Redux/PhotosPurchasedState";
-import { createClearAction, createFetchAction, photosStore } from "../Redux/PhotosState";
+import { createClearAction, photosStore } from "../Redux/PhotosState";
 import appConfig from "../Util/Config";
 
 class AuthService{
@@ -26,8 +25,7 @@ class AuthService{
 
     public logout(){
         authStore.dispatch(logoutAction());
-        photosStore.dispatch(createClearAction());
-        purchasedPhotosStore.dispatch(createClearPurchaseAction());
+        photosStore.dispatch(createClearAction())
     }
 }
 
