@@ -1,7 +1,7 @@
 .Layout {
 	height: 100%;
     display: grid;
-    grid-template-rows: 15% 5% 70% 10%;
+    grid-template-rows: 15% 7% 75% 3%;
     background-image: url("Mountain.webp");
     
 }
