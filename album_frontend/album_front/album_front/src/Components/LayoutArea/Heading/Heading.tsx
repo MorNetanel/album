@@ -1,3 +1,4 @@
+import Menu from "../Menu/Menu";
 import "./Heading.css";
 
 function Heading(): JSX.Element {
@@ -5,6 +6,7 @@ function Heading(): JSX.Element {
         <div className="Heading">
 			<div>
                 <h1>Album Project</h1>
+                <Menu/>
             </div>
         </div>
     );

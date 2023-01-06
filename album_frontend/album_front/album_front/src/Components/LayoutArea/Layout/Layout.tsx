@@ -15,8 +15,10 @@ function Layout(): JSX.Element {
 
 
 			<Heading/>
-           <h2>Menu</h2>
-            <Home/>
+           
+            <main>
+            <Routing/>
+            </main>
             <Footer/>
             
            
