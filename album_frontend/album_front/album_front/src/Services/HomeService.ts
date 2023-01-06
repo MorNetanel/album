@@ -1,5 +1,5 @@
 import axios from "axios";
-import { PhotoModel } from "../Models/Photo";
+import  PhotoModel  from "../Models/Photo";
 import { createFetchAction, photosStore } from "../Redux/PhotosState";
 import appConfig from "../Util/Config";
 

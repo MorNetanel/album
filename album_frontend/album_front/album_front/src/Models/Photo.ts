@@ -2,11 +2,11 @@ import PhotographerModel from "./Photographer";
 
 
 
-export class PhotoModel{
+ class PhotoModel{
     public id :number;
     public name:string;
     public dateTime: Date;
-    public image:File | FileList;
+    public image:File | FileList | string;
     public price :number;
     public photoType: PhotoType;
     public location: string;
@@ -23,6 +23,7 @@ export class PhotoModel{
         this.photographer = photographer;
     }
 }
+export default PhotoModel;
 
 
 

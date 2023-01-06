@@ -1,6 +1,6 @@
 import { createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { PhotoModel } from "../Models/Photo";
+import  PhotoModel  from "../Models/Photo";
 
 
 
