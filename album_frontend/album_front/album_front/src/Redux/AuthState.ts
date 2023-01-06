@@ -4,7 +4,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import { AppUserModel } from "../Models/AppUser";
 
 export class AuthState{
-    public token :string  ;
+    public token :string = null ;
     public user:any  = null;
     
     constructor (){
