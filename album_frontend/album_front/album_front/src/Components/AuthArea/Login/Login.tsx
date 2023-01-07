@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { LoginData } from "../../../Models/LoginData";
+import { authStore } from "../../../Redux/AuthState";
 import authService from "../../../Services/AuthService";
 import notificationService from "../../../Services/NotificationService";
 import "./Login.css";
@@ -13,11 +14,19 @@ function Login(): JSX.Element {
     const {register, handleSubmit, formState} = useForm<LoginData>();
     const navigate = useNavigate();
 
+    const user = {...authStore.getState().user};
+    
+    
+    
+    
+
     function send(loginData:LoginData){
 
         authService.login(loginData)
         .then( () =>{
-            notificationService.success("Hello ");
+            notificationService.success("Hello " + authStore.getState().user.firstName);
+           
+            
             navigate("/home");
         })
         .catch(err =>{
@@ -30,7 +39,7 @@ function Login(): JSX.Element {
     }
     return (
         <div className="Login">
-            <h2>ho</h2>
+           
             <div className="container-lg forml">
                 <form onSubmit={handleSubmit(send)}>
                     

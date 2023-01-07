@@ -118,10 +118,10 @@ public class AuthController {
                 .withIssuedAt(new Date())
                 .withClaim("id", id)
                 .withClaim("username", username)
-                .withClaim("first name", firstName)
-                .withClaim("last name", lastName)
+                .withClaim("firstName", firstName)
+                .withClaim("lastName", lastName)
                 .withClaim("email", email)
-                .withClaim("client type", appUserType.toString())
+                .withClaim("clientType", appUserType.toString())
                 .sign(Algorithm.HMAC256("NatiMor***javafullstackdeveloper"));
         return token;
     }

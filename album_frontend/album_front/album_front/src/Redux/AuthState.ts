@@ -46,9 +46,7 @@ export function reducer(currentState = new AuthState(), action:AuthAction){
         case AuthActionTypes.Register:
             newState.token = action.payload;
             localStorage.setItem("token", newState.token);
-            const tokenObject: {user: AppUserModel} = jwtDecode(newState.token);
-            
-            
+            const tokenObject: {user: AppUserModel} = jwtDecode(newState.token);            
             newState.user = tokenObject;
         break;
 
