@@ -24,6 +24,7 @@ public class SystemControllerAdvice {
     @ExceptionHandler(value = {LoginException.class})
     @ResponseStatus(HttpStatus.FORBIDDEN)
     public ErrorDetails authExceptionHandler(Exception e){
+        
         return new ErrorDetails(Exception.class.getSimpleName(),e.getMessage() );
     }
 }

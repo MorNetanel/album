@@ -1,9 +1,13 @@
 .Menu{
-	
+	position: absolute;
+    top: 10px;
+    left: 10px;
+
 }
 
 .NavLink{
     padding: 10px;
     margin: 10px;
     font-size: larger;
+    color: aliceblue;
 }

@@ -72,7 +72,7 @@ function Register(): JSX.Element {
                    
 
 
-                    <button type="submit" >Login</button>
+                    <button type="submit" >Register</button>
                     
                 </form>
                 </div>

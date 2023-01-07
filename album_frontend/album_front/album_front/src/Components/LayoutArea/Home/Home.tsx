@@ -18,6 +18,7 @@ useEffect( () =>{
 );
     return (
         <div className="Home ">
+            
 			<div className="Photo ">{photos.map(photo => <ImageCard key={photo.id} photo = {photo} /> )}</div>
         </div>
     );

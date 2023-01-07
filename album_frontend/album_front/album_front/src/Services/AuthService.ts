@@ -1,5 +1,6 @@
 import axios from "axios";
 import { AppUserModel } from "../Models/AppUser";
+import { LoginData } from "../Models/LoginData";
 import { authStore, loginAction, logoutAction } from "../Redux/AuthState";
 import { createClearAction, photosStore } from "../Redux/PhotosState";
 import appConfig from "../Util/Config";
@@ -7,7 +8,7 @@ import appConfig from "../Util/Config";
 class AuthService{
 
     public async register(credentials:AppUserModel){
-        console.log(credentials);
+      
         
         const response = axios.post<string>(appConfig.authUrl + "/register", credentials);
         const token = (await response).data;
@@ -15,8 +16,14 @@ class AuthService{
         
     }
 
-    public async login(username:string, password:string){
-        const response = axios.post<string>(appConfig.authUrl + "/login?user=" + username + "&password=" + password, );
+    public async login(loginData: LoginData){
+        
+        
+        
+        const response = axios.post<string>(appConfig.authUrl + "/login",  loginData);
+        
+        
+        
         const token = (await response).data;
         authStore.dispatch(loginAction(token));
     }

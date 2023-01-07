@@ -11,8 +11,8 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/guest")
-public class GuestController {
+@RequestMapping("/home")
+public class HomeController {
 
 
     private final GuestService guestService;

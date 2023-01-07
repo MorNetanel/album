@@ -5,6 +5,7 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.example.album_project.auth.LoginManager;
 import com.example.album_project.auth.RegistrationManager;
 import com.example.album_project.beans.Credentials;
+import com.example.album_project.beans.LoginData;
 import com.example.album_project.beans.UserSession;
 import com.example.album_project.enums.AppUserType;
 import com.example.album_project.enums.ErrMsg;
@@ -38,10 +39,10 @@ public class AuthController {
 
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestParam String username, @RequestParam String password) throws LoginException, ClientException, PhotographerException {
+    public ResponseEntity<String> login(@RequestBody LoginData loginData) throws LoginException, ClientException, PhotographerException {
         AppUserService appUserService = null;
 
-        appUserService = loginManager.login(username, password);
+        appUserService = loginManager.login(loginData.getUsername(), loginData.getPassword());
         String firstName = "";
         String lastName= "";
         String email= "";
@@ -62,7 +63,7 @@ public class AuthController {
             appUserType = AppUserType.CLIENT;
             id = ((ClientService) appUserService).getId();}
 
-        String token = createToken(username,firstName, lastName, email, appUserType, id);
+        String token = createToken(loginData.getUsername(),firstName, lastName, email, appUserType, id);
         log.info("put in sessions new app user service");
         sessions.put(token, new UserSession(appUserService, System.currentTimeMillis()));
         return ResponseEntity.accepted().body(token);

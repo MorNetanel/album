@@ -7,6 +7,7 @@ function Heading(): JSX.Element {
     return (
         <div className="Heading">
 			<div>
+           <Menu/>
                <div className="Auth"><AuthMenu/></div>
                 <h1>Album Project</h1>
                

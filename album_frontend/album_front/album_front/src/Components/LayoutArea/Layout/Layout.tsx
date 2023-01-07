@@ -14,11 +14,14 @@ function Layout(): JSX.Element {
 
 
 
+
 			<Heading/>
+
+                   
            
-            <main>
             <Routing/>
-            </main>
+           
+           
             <Footer/>
             
            
