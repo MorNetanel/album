@@ -1,0 +1,17 @@
+.AuthMenu {
+	
+
+    
+}
+
+
+.AuthMenu>div{
+    font-size: 150%;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.Auth{
+    color: aliceblue;
+}

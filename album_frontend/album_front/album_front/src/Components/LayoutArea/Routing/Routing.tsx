@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import Home from "../Home/Home";
 import PageNotFound from "../PageNotFound/PageNotFound";
 import AboutUs from "../../AboutUsArea/AboutUs/AboutUs";
+import Register from "../../AuthArea/Register/Register";
 
 
 function Routing(): JSX.Element {
@@ -13,6 +14,7 @@ function Routing(): JSX.Element {
 
             <Route path="/home" element={<Home />} />
             <Route path="/aboutus" element={<AboutUs />} />
+            <Route path="/auth/register" element={<Register />} />
             
 
 

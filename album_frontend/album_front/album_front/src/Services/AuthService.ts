@@ -7,6 +7,8 @@ import appConfig from "../Util/Config";
 class AuthService{
 
     public async register(credentials:AppUserModel){
+        console.log(credentials);
+        
         const response = axios.post<string>(appConfig.authUrl + "/register", credentials);
         const token = (await response).data;
         authStore.dispatch(loginAction(token));
