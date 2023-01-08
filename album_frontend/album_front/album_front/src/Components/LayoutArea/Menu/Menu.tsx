@@ -5,16 +5,8 @@ import {useEffect, useState} from "react";
 
 function Menu(): JSX.Element {
 
-
     
     
-
-    
-    
-
-
-    
-
 
     return (
 
@@ -25,12 +17,16 @@ function Menu(): JSX.Element {
 
 
 
-
+<br/>
 			<NavLink className=" NavLink"  to="/home">Home</NavLink>
             <NavLink className="NavLink"  to="/aboutus">About Us </NavLink>
+         
+              
+
+            {/* {clientType.includes("CLIENT") && <>
+            <NavLink className=" NavLink"  to="/client/details">Details</NavLink>
             
-               
-            
+            </>}  */}
 
               
 

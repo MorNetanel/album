@@ -14,7 +14,7 @@ function Login(): JSX.Element {
     const {register, handleSubmit, formState} = useForm<LoginData>();
     const navigate = useNavigate();
 
-    const user = {...authStore.getState().user};
+    
     
     
     

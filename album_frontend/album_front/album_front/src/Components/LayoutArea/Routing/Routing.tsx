@@ -5,6 +5,7 @@ import PageNotFound from "../PageNotFound/PageNotFound";
 import AboutUs from "../../AboutUsArea/AboutUs/AboutUs";
 import Register from "../../AuthArea/Register/Register";
 import Login from "../../AuthArea/Login/Login";
+import UserDetails from "../../AppUserArea/UserDetails/UserDetails";
 
 
 
@@ -18,6 +19,8 @@ function Routing(): JSX.Element {
             <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/auth/register" element={<Register />} />
             <Route path="/auth/login" element={<Login />} />
+            <Route path="/photographer/details" element={<UserDetails />} />
+            <Route path="/client/details" element={<UserDetails />} />
 
             
             
