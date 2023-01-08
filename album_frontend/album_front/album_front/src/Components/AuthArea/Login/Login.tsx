@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { LoginData } from "../../../Models/LoginData";
 import { authStore } from "../../../Redux/AuthState";
+import { photosStore } from "../../../Redux/PhotosState";
 import authService from "../../../Services/AuthService";
 import notificationService from "../../../Services/NotificationService";
 import "./Login.css";
@@ -25,6 +26,7 @@ function Login(): JSX.Element {
         authService.login(loginData)
         .then( () =>{
             notificationService.success("Hello " + authStore.getState().user.firstName);
+            
            
             
             navigate("/home");

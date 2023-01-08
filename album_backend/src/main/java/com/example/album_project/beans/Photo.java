@@ -41,4 +41,14 @@ public class Photo {
         this.photoType = photoType;
         this.location = location;
     }
+
+    public Photo(String name, LocalDate dateTime, String image, double price, PhotoType photoType, String location, Photographer photographer) {
+        this.name = name;
+        this.dateTime = dateTime;
+        this.image = image;
+        this.price = price;
+        this.photoType = photoType;
+        this.location = location;
+        this.photographer = photographer;
+    }
 }

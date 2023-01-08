@@ -26,6 +26,7 @@ class AuthService{
         
         const token = (await response).data;
         authStore.dispatch(loginAction(token));
+        photosStore.dispatch(createClearAction());
     }
 
 

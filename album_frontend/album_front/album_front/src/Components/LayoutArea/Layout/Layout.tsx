@@ -17,9 +17,12 @@ function Layout(): JSX.Element {
 
 			<Heading/>
 
-                   
+            
+            
            
             <Routing/>
+           
+            {/* <Routing/> */}
            
            
             <Footer/>

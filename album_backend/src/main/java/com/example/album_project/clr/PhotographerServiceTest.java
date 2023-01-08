@@ -30,7 +30,6 @@ public class PhotographerServiceTest implements CommandLineRunner {
 
 
 
-//        System.out.println(Art.photographerService);
 
 
 

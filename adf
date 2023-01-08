@@ -1,0 +1,219 @@
+[33mcommit 0b6b152c8f0edcb2a6108a22f2c91e790b3edb96[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Nati <nmor786@gmail.com>
+Date:   Sun Jan 8 11:14:49 2023 +0200
+
+    add menu for photographer and client, work on display photos
+
+[33mcommit 2bbcd30ae84eee41b72ef679896844ec1085bd69[m
+Author: Nati <nmor786@gmail.com>
+Date:   Sun Jan 8 10:11:21 2023 +0200
+
+    work on user menu
+
+[33mcommit 1cd77d38574c5c941b55e4f3c06062baa1a6cda7[m
+Author: Nati <nmor786@gmail.com>
+Date:   Sat Jan 7 21:32:26 2023 +0200
+
+    work on menu
+
+[33mcommit 6a867158998d071dfc76c3061538de596412ef2a[m
+Author: Nati <nmor786@gmail.com>
+Date:   Sat Jan 7 15:42:56 2023 +0200
+
+    add login
+
+[33mcommit 6c8835bfe82a57095419f42a8b8c8214ec2abd2e[m
+Author: Nati <nmor786@gmail.com>
+Date:   Sat Jan 7 12:25:10 2023 +0200
+
+    add register
+
+[33mcommit 3cf49585f17d5ae6ae61c0f6d75094ffc0741005[m
+Author: Nati <nmor786@gmail.com>
+Date:   Fri Jan 6 23:39:13 2023 +0200
+
+    work on 404 and icon
+
+[33mcommit 42b3e4662dccd5bebf2a4b3c8aedc100dc5ddb7a[m
+Author: Nati <nmor786@gmail.com>
+Date:   Fri Jan 6 17:51:13 2023 +0200
+
+    work on css
+
+[33mcommit 03ffd599c5d1b219d6ef57ae6a9796e014344b9d[m
+Author: Nati <nmor786@gmail.com>
+Date:   Fri Jan 6 16:40:34 2023 +0200
+
+    finish about us component
+
+[33mcommit b52ef48113178fe8bb1fb21b0fafec041a4a4c48[m
+Author: Nati <nmor786@gmail.com>
+Date:   Fri Jan 6 15:46:30 2023 +0200
+
+    work on home page
+
+[33mcommit 55e06147985a35aea3925b88e9c24b0053e10912[m
+Author: Nati <nmor786@gmail.com>
+Date:   Fri Jan 6 12:57:33 2023 +0200
+
+    create new react project
+
+[33mcommit 6133aa4c76c79353453f644b50170f987c84d7db[m
+Author: Nati <nmor786@gmail.com>
+Date:   Thu Jan 5 22:48:56 2023 +0200
+
+    Revert "work on services"
+    
+    This reverts commit 108a36eeb0205e67c3c27db7fc9af59095668aba.
+
+[33mcommit f4e8127dda4d0f78a0a593703d7e035e244b7f46[m
+Author: Nati <nmor786@gmail.com>
+Date:   Thu Jan 5 22:45:18 2023 +0200
+
+    Revert "work on home area"
+    
+    This reverts commit 329eaec42666cfc8c47aeca4fd43e25517ec2e8a.
+
+[33mcommit 329eaec42666cfc8c47aeca4fd43e25517ec2e8a[m
+Author: Nati <nmor786@gmail.com>
+Date:   Thu Jan 5 20:28:36 2023 +0200
+
+    work on home area
+
+[33mcommit 4fb05bdfa404c8cb26e5c5331960f62d90f98e18[m[33m ([m[1;32mfront[m[33m)[m
+Author: Nati <nmor786@gmail.com>
+Date:   Wed Jan 4 08:22:14 2023 +0200
+
+    work on layout
+
+[33mcommit 108a36eeb0205e67c3c27db7fc9af59095668aba[m
+Author: Nati <nmor786@gmail.com>
+Date:   Tue Jan 3 21:05:00 2023 +0200
+
+    work on services
+
+[33mcommit 54e375a5a8f56b8d14882cebd89c4640c195a6ce[m
+Author: Nati <nmor786@gmail.com>
+Date:   Tue Jan 3 18:36:42 2023 +0200
+
+    work on states and services
+
+[33mcommit a91a72fc76234cb1e8b29304429457376f44a753[m
+Author: Nati <nmor786@gmail.com>
+Date:   Tue Jan 3 17:59:17 2023 +0200
+
+    add models and global states
+
+[33mcommit 1e2c88eea3f509ca5ca6a5707d44fe7ff7ba44fd[m
+Author: Nati <nmor786@gmail.com>
+Date:   Tue Jan 3 13:43:21 2023 +0200
+
+    add front, add config
+
+[33mcommit 00c8fc0ea4c5b695e347195d4da01738eef99631[m
+Author: Nati <nmor786@gmail.com>
+Date:   Tue Jan 3 13:33:20 2023 +0200
+
+    change dir of front
+
+[33mcommit 72497b68f650aafe0cdce6140eec1515a46d208c[m[33m ([m[1;31morigin/front[m[33m)[m
+Author: Nati <nmor786@gmail.com>
+Date:   Sun Jan 1 16:27:04 2023 +0200
+
+    add frontend
+
+[33mcommit 7d71968d159ace12c7ae695fe26f5c24f97a6b49[m
+Author: Nati <nmor786@gmail.com>
+Date:   Sun Jan 1 16:05:15 2023 +0200
+
+    change folder name
+
+[33mcommit 101eb7b87400ba37775eca7c91ede548457bde37[m
+Author: Nati <nmor786@gmail.com>
+Date:   Sun Jan 1 16:03:00 2023 +0200
+
+    create frontend
+
+[33mcommit 974ac2a5f4eae1f8826f732cf04409c248d511c8[m[33m ([m[1;32mcontrollers[m[33m)[m
+Author: Nati <nmor786@gmail.com>
+Date:   Sun Jan 1 15:17:46 2023 +0200
+
+    finish controllers
+
+[33mcommit 03489ba20f1d447d1f2bf9ea7a07a5c700282b25[m
+Author: Nati <nmor786@gmail.com>
+Date:   Sat Dec 31 21:28:02 2022 +0200
+
+    check methods in controllers auth guest and photographer untill update
+
+[33mcommit 146e22f694ba16ee7894dd156b5efad413e64e74[m
+Author: Nati <nmor786@gmail.com>
+Date:   Sat Dec 31 07:31:45 2022 +0200
+
+    fix docker auth
+
+[33mcommit 687016a56d1503e59e5c5ffd2fe33d27d9043c85[m
+Author: Nati <nmor786@gmail.com>
+Date:   Wed Dec 28 13:12:53 2022 +0200
+
+    finish filters, remain for backend: session in controllers
+
+[33mcommit 81681a21af6604ecb45f718132c5332ee428f772[m
+Author: Nati <nmor786@gmail.com>
+Date:   Wed Dec 28 10:43:04 2022 +0200
+
+    finish client and photographer controllers
+
+[33mcommit 6b2acb8a6397fc521f157223fd4b398bc00bcb40[m[33m ([m[1;32mauth[m[33m)[m
+Author: Nati <nmor786@gmail.com>
+Date:   Wed Dec 28 09:23:08 2022 +0200
+
+    add remove session job
+
+[33mcommit 045a6ef386914ad130b11d5bfdf5557c13c107fd[m
+Author: Nati <nmor786@gmail.com>
+Date:   Wed Dec 28 08:56:28 2022 +0200
+
+    work on register method
+
+[33mcommit 90718a5e810f3e90b40ff2cd61a177ebeab9f186[m
+Author: Nati <nmor786@gmail.com>
+Date:   Tue Dec 27 21:37:06 2022 +0200
+
+    finish auth controller login method
+
+[33mcommit c4d8916a7621c622de0586c5837a3f2f3cfc0df5[m
+Author: Nati <nmor786@gmail.com>
+Date:   Tue Dec 27 20:47:11 2022 +0200
+
+    complete auth
+
+[33mcommit a31ce3ecfc946ebeda40aef8af7a623a4b9cb28f[m
+Author: Nati <nmor786@gmail.com>
+Date:   Tue Dec 27 19:58:18 2022 +0200
+
+    add login and register
+
+[33mcommit d3429f2f15c564fc3a0ef43f3b07e0f4b90a3c7a[m[33m ([m[1;32mservice[m[33m)[m
+Author: Nati <nmor786@gmail.com>
+Date:   Tue Dec 27 14:12:38 2022 +0200
+
+    finish client service and photographer service
+
+[33mcommit 234f38174ace7b2aebc3f95c210ef2372d1295be[m
+Author: Nati <nmor786@gmail.com>
+Date:   Mon Dec 26 14:10:37 2022 +0200
+
+    create beans, repo and service, stop in client service
+
+[33mcommit b9af482076976da399673531dab0ca1825fc365b[m[33m ([m[1;32mbeans[m[33m)[m
+Author: Nati <nmor786@gmail.com>
+Date:   Mon Dec 26 11:47:38 2022 +0200
+
+    add beans and repo
+
+[33mcommit 5335eb8ae6c04511e86495345eebd9bdbb55fd94[m
+Author: Nati <nmor786@gmail.com>
+Date:   Mon Dec 26 11:02:55 2022 +0200
+
+    test

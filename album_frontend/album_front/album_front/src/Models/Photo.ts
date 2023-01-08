@@ -3,14 +3,14 @@ import PhotographerModel from "./Photographer";
 
 
  class PhotoModel{
-    public id :number;
+    public id! :number;
     public name:string;
-    public dateTime: Date;
+    public dateTime!: Date;
     public image:File | FileList | string;
     public price :number;
-    public photoType: PhotoType;
+    public photoType: PhotoType | string;
     public location: string;
-    public photographer: PhotographerModel;
+    public photographer!: PhotographerModel;
 
     constructor(id: number, name:string, dateTime:Date, image:File |FileList, price:number, photoType:PhotoType,location:string, photographer:PhotographerModel ){
         this.id = id;
@@ -22,6 +22,11 @@ import PhotographerModel from "./Photographer";
         this.location = location;
         this.photographer = photographer;
     }
+
+    
+
+
+
 }
 export default PhotoModel;
 
