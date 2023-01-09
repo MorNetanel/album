@@ -7,6 +7,7 @@ import Register from "../../AuthArea/Register/Register";
 import Login from "../../AuthArea/Login/Login";
 import UserDetails from "../../AppUserArea/UserDetails/UserDetails";
 import AddPhoto from "../../PhotographerArea/AddPhoto/AddPhoto";
+import ImageDetailsForPhotographer from "../../ImageArea/ImageDetailsForPhotographer/ImageDetailsForPhotographer";
 
 
 
@@ -23,6 +24,7 @@ function Routing(): JSX.Element {
             <Route path="/photographer/details" element={<UserDetails />} />
             <Route path="/client/details" element={<UserDetails />} />
             <Route path="/photographer/add" element={<AddPhoto />} />
+            <Route path="/photographer/photo/:id"  element={<ImageDetailsForPhotographer />} />
 
             
             

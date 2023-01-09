@@ -1,0 +1,19 @@
+.ImageDetailsForPhotographer {
+	
+    
+}
+
+
+.ImageDetailsForPhotographer img{
+    position:absolute;
+    right: 110px;
+    top: 60px;
+    height: 500px;
+}
+
+
+.ImageDetailsForPhotographer div{
+    position: absolute;
+    left: 40px;
+    top: 140px;
+}

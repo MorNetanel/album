@@ -6,6 +6,7 @@ import notificationService from "../../../Services/NotificationService";
 import ImageCard from "../../ImageArea/ImageCard/ImageCard";
 import { authStore } from "../../../Redux/AuthState";
 import photographerService from "../../../Services/PhotographerService";
+import { photosStore } from "../../../Redux/PhotosState";
 
 
 
@@ -24,7 +25,7 @@ useEffect( () =>{
             homeService.getPhotosOffline()
     .then(photos => setPhotos(photos))
     .catch(err => notificationService.error(err));}
-        ,[]
+        ,[photosStore.getState().photos]
 );
 
     

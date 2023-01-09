@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import PhotoModel from "../../../Models/Photo";
+import { photosStore } from "../../../Redux/PhotosState";
 import notificationService from "../../../Services/NotificationService";
 import photographerService from "../../../Services/PhotographerService";
 import "./AddPhoto.css";
@@ -13,12 +14,11 @@ function AddPhoto(): JSX.Element {
 
     function send(photo :PhotoModel){
         photo.image = (photo.image as FileList[0]);
-        console.log(photo);
+        
         
         photographerService.addPhoto(photo)
         .then(() =>{
             notificationService.success("Photo added");
-            navigate("/home");
         })
         .catch(err=>{
             notificationService.error(err);

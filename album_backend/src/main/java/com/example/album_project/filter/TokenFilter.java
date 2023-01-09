@@ -30,6 +30,11 @@ public class TokenFilter extends OncePerRequestFilter {
             String appUserType = JWT.decode(token).getClaim("client type").asString();
             log.info("succeed to decode token for user : {}" , username );
             filterChain.doFilter(request, response);
+
+
+
+
+
         }catch (Exception e){
             log.error("Failed to decode token");
             response.setStatus(401);

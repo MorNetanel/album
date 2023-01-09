@@ -2,5 +2,14 @@
 	display:inline-flex;
     flex-direction: column;
     width: 20%;
+    height: 60px;
+    
+    
+}
+
+.Image img{
+    width: 140px;
+    height: 140px;
+    margin: auto;
     
 }

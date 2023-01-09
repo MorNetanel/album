@@ -23,6 +23,7 @@ public class Photo {
     private String name;
     private LocalDate dateTime;
 
+    @Column(columnDefinition = "MEDIUMTEXT")
     private String image;
     private double price;
     @Enumerated(EnumType.STRING)
@@ -51,4 +52,6 @@ public class Photo {
         this.location = location;
         this.photographer = photographer;
     }
+
+
 }

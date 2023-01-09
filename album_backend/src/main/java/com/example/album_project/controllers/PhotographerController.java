@@ -15,6 +15,7 @@ import java.util.Optional;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/photographer")
+@CrossOrigin
 public class PhotographerController {
 
     private PhotographerService photographerService;
@@ -29,13 +30,13 @@ public class PhotographerController {
         return photographerService.getAllPhotographerPhotos();
     }
 
-    @PostMapping("/add")
-    public Optional<Photo> addPhoto() throws PhotographerException {
-                return Optional.empty();
-//        return Optional.of(photographerService.addPhoto(photo));
+    @PostMapping
+    public Optional<Photo> addPhoto(@RequestBody Photo photo) throws PhotographerException {
+        System.out.println("photographer controller add photo");
+        return Optional.of(photographerService.addPhoto(photo));
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/photo/{id}")
     public Optional<Photo> getOnePhoto(@PathVariable int id) throws PhotographerException {
         return Optional.of(photographerService.getPhoto(id));
     }

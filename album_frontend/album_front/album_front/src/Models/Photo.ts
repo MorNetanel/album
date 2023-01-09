@@ -3,16 +3,16 @@ import PhotographerModel from "./Photographer";
 
 
  class PhotoModel{
-    public id! :number;
+    public id :number;
     public name:string;
-    public dateTime!: Date;
-    public image:File | FileList | string;
+    public dateTime: Date;
+    public image:File | FileList | string | Blob;
     public price :number;
     public photoType: PhotoType | string;
     public location: string;
-    public photographer!: PhotographerModel;
+    public photographer: PhotographerModel;
 
-    constructor(id: number, name:string, dateTime:Date, image:File |FileList, price:number, photoType:PhotoType,location:string, photographer:PhotographerModel ){
+    constructor(id: number, name:string, dateTime:Date, image:File |FileList | Blob, price:number, photoType:PhotoType,location:string, photographer:PhotographerModel ){
         this.id = id;
         this.name = name;
         this.dateTime = dateTime;
