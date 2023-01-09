@@ -75,7 +75,7 @@ class PhotographerService{
 
 
     public async deletePhoto(id: number){
-        const response = (await axios.delete(appConfig.photographerUrl+id)).data;
+        const response = (await axios.delete(appConfig.photographerUrl+ "/" +id)).data;
         photosStore.dispatch(createDeleteAction(id));
         return response;
     }

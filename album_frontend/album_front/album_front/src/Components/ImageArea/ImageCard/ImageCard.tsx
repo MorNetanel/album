@@ -39,11 +39,16 @@ function ImageCard(props:PhotoProperties): JSX.Element {
     return (
         <div className="ImageCard">
 			<div className="Image">
+
                 <h2>{props.photo.name}</h2>
+
+                {client.includes("PHOTOGRAPHER")  && <Link className="Link" to={"/photographer/photo/" + props.photo.id}>
                 <img src={URL.createObjectURL(convertDataUrlToBlob(props.photo.image))}/><br/>
+                </Link>}
+                
                 <h3>{props.photo.location}</h3>
                 <h3>{props.photo.price}</h3>
-                {client.includes("PHOTOGRAPHER")  && <Link to={"/photographer/photo/" + props.photo.id}>Show  Details</Link>}
+                
                 
                 
             </div>

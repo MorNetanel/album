@@ -13,7 +13,29 @@
 
 
 .ImageDetailsForPhotographer div{
+    -webkit-text-stroke: 2px black;
     position: absolute;
-    left: 40px;
-    top: 140px;
+    left: 20px;
+    top: 120px;
+    
+}
+
+
+.ImageDetailsForPhotographer div h2{
+    font-size: 550%;
+}
+
+.ImageDetailsForPhotographer div h4{
+    font-size: 250%;
+}
+
+.ImageDetailsForPhotographer div span{
+    font-size: 200%;
+}
+
+.options{
+    font-size: 130%;
+    position:absolute ;
+    top: 70px;
+    right: 120px;
 }
