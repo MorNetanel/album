@@ -85,20 +85,23 @@ public class PhotographerService extends AppUserService {
     }
 
     public Optional<Photo> updatePhoto(Photo photo) throws PhotographerException {
-        Photo photoBeforeUpdate = photoRepository.getPhotoByIdAndPhotographerId(photo.getId(), id).orElseThrow(() ->
+
+
+
+
+        Photo photoBeforeUpdate = photoRepository.getPhotoByIdAndPhotographerId(photo.getId(), this.id).orElseThrow(() ->
                 new PhotographerException(ErrMsg.ID_NOT_FOUND));
 
+
+
+
         if (photo.getName().equals(photoBeforeUpdate.getName())
-            &&
-                photo.getId() == photoBeforeUpdate.getId() &&
-                        photo.getPrice() > 0 &&
-                        photo.getDateTime().getYear()==photoBeforeUpdate.getDateTime().getYear()
-                        &&
-                        photo.getDateTime().getMonth()== photoBeforeUpdate.getDateTime().getMonth()
-                        &&
-                        photo.getDateTime().getDayOfMonth()==photoBeforeUpdate.getDateTime().getDayOfMonth()
+
         ) {
+
             photo.setPhotographer(photographerRepository.findById(id).orElseThrow(()->new PhotographerException(ErrMsg.ID_NOT_FOUND)));
+            photo.setDateTime(photoBeforeUpdate.getDateTime());
+
 
 
             log.info("update {} photo by photographer : {}", photo.getName(), photo.getPhotographer().getFirstName());

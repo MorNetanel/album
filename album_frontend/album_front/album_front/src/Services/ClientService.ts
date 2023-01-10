@@ -24,15 +24,17 @@ class ClientService{
 
     public async getOnePhoto(id:number){
         
-        let photos :PhotoModel[] = photosStore.getState().photos;
-        let photo :PhotoModel | undefined = photos.find(p=> p.id == id);
+       
+        const photo = photosStore.getState().photos.find(photo=> photo.id == id);
         if (typeof photo === "undefined"){
-                return axios.get<PhotoModel>(appConfig.clientUrl + id);
+                return (await axios.get<PhotoModel>(appConfig.clientUrl + "/photo/" + id)).data;
         }
-        else{
+        
             return photo;
-        }
+        
     }
+
+    
 
     public async getAllPhotos(){
         let photos:PhotoModel[] = photosStore.getState().photos;

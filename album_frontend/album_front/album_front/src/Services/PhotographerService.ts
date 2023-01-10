@@ -47,6 +47,8 @@ class PhotographerService{
 
         reader.onload = async function () {
              photo.image = reader.result as string;
+
+             console.log( photo);
              const response = await axios.post(appConfig.photographerUrl , photo);
             const newPhoto = response.data;
             
@@ -81,31 +83,15 @@ class PhotographerService{
     }
 
     public async updatePhoto(photo:PhotoModel){
-        //update photographer into photo
-        let photographerId :number = authStore.getState().user.id;
-        let firstName :string = authStore.getState().user.firstName;
-        let lastName:string = authStore.getState().user.lastName;
-        let email :string = authStore.getState().user.email;
-        let photographer:PhotographerModel = new PhotographerModel(photographerId, firstName, lastName, email);
-        photo.photographer = photographer;
-
-        let reader = new FileReader();
-        var image = photo.image as FileList;
-        reader.readAsDataURL(image[0]);
-        reader.onload = async function () {
-             photo.image = reader.result as string;
-
-
-        
-
-        const response = (await axios.put<PhotoModel>(appConfig.photographerUrl));
+      
+        const response = (await axios.put(appConfig.photographerUrl, photo));
         const newPhoto = response.data;
-
-        setTimeout(()=>{}, 8000); photosStore.dispatch(createEditAction(newPhoto));
+        photosStore.dispatch(createEditAction(newPhoto));
+        
         
         return newPhoto;
         
-         }
+         
 
     }
 

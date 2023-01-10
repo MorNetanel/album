@@ -1,12 +1,11 @@
-import "./ImageDetailsForPhotographer.css";
+import "./ImageDetailsForClient.css";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import PhotoModel from "../../../Models/Photo";
-import photographerService from "../../../Services/PhotographerService";
+import clientService from "../../../Services/ClientService";
 import notificationService from "../../../Services/NotificationService";
-import { createAddPhotoAction, createFetchAction, photosStore } from "../../../Redux/PhotosState";
+function ImageDetailsForClient(): JSX.Element {
 
-function ImageDetailsForPhotographer(): JSX.Element {
 
     function convertDataUrlToBlob(dataUrl: any): Blob {
         const arr = dataUrl.split(',');
@@ -25,28 +24,17 @@ function ImageDetailsForPhotographer(): JSX.Element {
     const id = +params.id!;
     const navigate = useNavigate();
     useEffect( () =>{
-        photographerService.getPhoto(id)
-        .then(photo => {
-            setPhoto(photo);
+        clientService.getOnePhoto(id)
+        .then(p => {
+            setPhoto(p);
         })
         .catch(err=>notificationService.error(err))
     }, []);
 
 
-    function deletePhoto(){
-            photographerService.deletePhoto(id)
-            .then(() =>{
-                notificationService.success("Photo Deleted");
-                photosStore.dispatch(createFetchAction([]));
-                navigate("/home");
-            })
-            .catch( err=>notificationService.error(err) )
-        }
     
-
     return (
-        <div className="ImageDetailsForPhotographer">
-            
+        <div className="ImageDetailsForClient">
 			{photo && <>
             <div><h2>{photo.name}</h2>
             <span>Type: </span><h4>{photo.photoType}</h4>
@@ -56,13 +44,11 @@ function ImageDetailsForPhotographer(): JSX.Element {
             
             <img src={URL.createObjectURL(convertDataUrlToBlob(photo.image))}/><br/>
                        
-            <span className="options">        
-            <Link className="link" to={"/photographer/updatephoto/" + id}>Edit Photo</Link><br/>
-            <Link className="link" to="" onClick={deletePhoto} >Delete Photo</Link>
-            </span>
+            
+            
             </>}
         </div>
     );
 }
 
-export default ImageDetailsForPhotographer;
+export default ImageDetailsForClient;

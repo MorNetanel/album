@@ -51,14 +51,14 @@ export function photosReducer(currentState = new PhotosState(), action:PhotosAct
         break;
 
         case PhotosActionType.EditPhoto:
-            const indexToEdit = newState.photos.findIndex(photo => photo.id = action.payload.id);
-            if (indexToEdit>0)
+            const indexToEdit = newState.photos.findIndex(photo => photo.id == action.payload.id);
+            if (indexToEdit>=0)
             newState.photos[indexToEdit] = action.payload;
         break;
 
         case PhotosActionType.DeletePhoto:
-            const indexToDelete = newState.photos.findIndex(photo => photo.id = action.payload.id);
-            if (indexToDelete>0)
+            const indexToDelete = newState.photos.findIndex(photo => photo.id == action.payload.id);
+            if (indexToDelete>=0)
             newState.photos.splice(indexToDelete, 1);
         break;
 

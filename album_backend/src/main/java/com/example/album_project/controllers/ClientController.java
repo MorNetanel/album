@@ -24,7 +24,7 @@ public class ClientController {
         return Optional.of(clientService.getDetails());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/photo/{id}")
     public Optional<Photo>getOnePhoto(@PathVariable int id) throws ClientException {
         return Optional.of(clientService.getOnePhoto(id));
     }

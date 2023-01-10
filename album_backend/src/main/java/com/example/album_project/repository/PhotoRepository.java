@@ -15,6 +15,7 @@ import java.util.Optional;
 public interface PhotoRepository extends JpaRepository<Photo, Integer> {
 
 
+    @Query(value = "select * from photos where id = ?1 and photographer_id =?2", nativeQuery = true)
     Optional<Photo> getPhotoByIdAndPhotographerId(int photoId, int photographerId);
 
     List<Photo> getPhotosByPhotographerId(int photographerId);

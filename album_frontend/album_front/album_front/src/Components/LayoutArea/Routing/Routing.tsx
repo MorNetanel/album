@@ -8,6 +8,8 @@ import Login from "../../AuthArea/Login/Login";
 import UserDetails from "../../AppUserArea/UserDetails/UserDetails";
 import AddPhoto from "../../PhotographerArea/AddPhoto/AddPhoto";
 import ImageDetailsForPhotographer from "../../ImageArea/ImageDetailsForPhotographer/ImageDetailsForPhotographer";
+import EditPhoto from "../../PhotographerArea/EditPhoto/EditPhoto";
+import ImageDetailsForClient from "../../ImageArea/ImageDetailsForClient/ImageDetailsForClient";
 
 
 
@@ -25,6 +27,9 @@ function Routing(): JSX.Element {
             <Route path="/client/details" element={<UserDetails />} />
             <Route path="/photographer/add" element={<AddPhoto />} />
             <Route path="/photographer/photo/:id"  element={<ImageDetailsForPhotographer />} />
+            <Route path="/client/photo/:id"  element={<ImageDetailsForClient />} />
+            <Route path="/photographer/updatephoto/:id"  element={<EditPhoto />} />
+
 
             
             
