@@ -25,15 +25,17 @@ class PhotographerService{
     }
 
     public async getAllPhotos(){
-        if (photosStore.getState().photos.length ==0 ){
+        if (photosStore.getState().photos.length ==0 && authStore.getState().user.clientType == "PHOTOGRAPHER" ){
         const response = axios.get<PhotoModel[]>(appConfig.photographerUrl);
         const photos = (await response).data;
         photosStore.dispatch(createFetchAction((photos)));
         return photos;
         }
         else{
-            const photographerId = authStore.getState().user.photographerId;
-            return photosStore.getState().photos.filter(photo => photo.photographer.id === photographerId);
+            const photographerId:number = authStore.getState().user.id;
+            console.log(photographerId);
+            
+            return photosStore.getState().photos.filter(photo => photo.photographer.id == photographerId);
         }
     }
 

@@ -56,6 +56,14 @@ class ClientService{
             return photoPurcased;
         }
     }
+
+    public async getByMaxPrice(maxPrice:number){
+        if (photosStore.getState().photos.length == 0){
+            const photos = this.getAllPhotos();
+            return (await photos).filter(p => p.price <= maxPrice);
+        }
+        else return photosStore.getState().photos.filter(p => p.price <= maxPrice);
+    }
     
 
 

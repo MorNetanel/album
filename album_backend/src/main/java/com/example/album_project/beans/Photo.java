@@ -32,7 +32,7 @@ public class Photo {
     private String location;
     @ManyToOne
     @ToString.Exclude
-    @JsonIgnore
+//    @JsonIgnore
     private Photographer photographer;
 
     public Photo(String name, String image, double price, PhotoType photoType, String location) {
