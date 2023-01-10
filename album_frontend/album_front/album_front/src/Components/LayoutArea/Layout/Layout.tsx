@@ -12,20 +12,23 @@ function Layout(): JSX.Element {
 
 
 
+{/* <h2>A</h2>
+<h2>b</h2>
+<h2>c</h2> */}
 
 
 
-			<Heading/>
 
-            
-            
-           
-            <Routing/>
-           
-            {/* <Routing/> */}
-           
-           
+<Heading/>
+<Routing/>
             <Footer/>
+
+			 {/* <Heading/>       
+             
+             <Routing/>
+             
+            <Footer/> */}
+            
             
            
         </div>

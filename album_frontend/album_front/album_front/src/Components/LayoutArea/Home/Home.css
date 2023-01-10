@@ -1,7 +1,6 @@
-.Home Photo {
-	overflow: auto;
-    
+
+.Home{
+	/* overflow: auto; */
+	flex-direction: column;
 }
-
-
 

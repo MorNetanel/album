@@ -54,7 +54,8 @@ const [clientType , setClientType] = useState<string>();
              )}</div>}
             {client.includes("CLIENT") && 
 			<div className="Photo ">{photos.map(photo => <ImageCard key={photo.id} photo = {photo} /> )}</div>}
-            {authStore.getState().token == null && <div className="Photo ">{photos.map(photo => <ImageCard key={photo.id} photo = {photo} /> )}</div>}
+            {authStore.getState().token == null &&
+             <div className="Photo ">{photos.map(photo => <ImageCard key={photo.id} photo = {photo} /> )}</div>}
         </div>
     );
 }

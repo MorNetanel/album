@@ -11,6 +11,12 @@ function AboutUs(): JSX.Element {
             <p>The backend of the project has been written in Java with Tech such as Spring, MySQL, MongoDB and Docker.
                 The frontend of the project has been written in JavaScript using React and Redux libraries.
             </p>
+
+
+
+
+
+
 			
         </div>
     );

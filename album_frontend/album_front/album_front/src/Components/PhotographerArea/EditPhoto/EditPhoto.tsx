@@ -107,7 +107,7 @@ function EditPhoto(): JSX.Element {
 <label >Location: </label> <br/>
 <input type="text" id ="location"{...register("location", {
     required:{value:true, message:"Please enter location"},
-    minLength:{value:5, message:"Location must be at least 5 characters long"},
+    minLength:{value:3, message:"Location must be at least 3 characters long"},
     maxLength:{value:15, message:"Location must be maximum 15 characters long"}
 })} /> <br/>
 <span className="error">{formState.errors?.location?.message}<br/></span>

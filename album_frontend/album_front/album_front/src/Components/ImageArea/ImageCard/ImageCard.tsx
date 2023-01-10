@@ -48,7 +48,8 @@ function ImageCard(props:PhotoProperties): JSX.Element {
                 {client.includes("CLIENT")  && <Link className="Link" to={"/client/photo/" + props.photo.id}>
                 <img src={URL.createObjectURL(convertDataUrlToBlob(props.photo.image))}/><br/>
                 </Link>}
-                
+                {authStore.getState().token == null &&
+                <img src={URL.createObjectURL(convertDataUrlToBlob(props.photo.image))}/>}
                 <h3>{props.photo.location}</h3>
                 <h3>{props.photo.price}</h3>
                 

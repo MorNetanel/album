@@ -1,9 +1,9 @@
 .ImageCard {
-	display:inline-flex;
-    flex-direction: column;
     width: 20%;
-    height: 60px;
-    
+    display: inline-flex;
+    flex-direction: column;
+    height: 300px;
+    margin: 20px;
     
 }
 
