@@ -1,15 +1,16 @@
 .ImageCard {
-    width: 20%;
-    display: inline-flex;
+    width: 12%;
+    display:inline-flex;
     flex-direction: column;
-    height: 300px;
-    margin: 20px;
+    height: 260px;
+    margin: auto;
+    padding: auto;
     
 }
 
 .Image img{
-    width: 140px;
-    height: 140px;
+    width: 120px;
+    height: 110px;
     margin: auto;
     
 }

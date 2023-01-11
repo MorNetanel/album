@@ -37,13 +37,15 @@ class ClientService{
     
 
     public async getAllPhotos(){
-        let photos:PhotoModel[] = photosStore.getState().photos;
-        if (typeof photos === "undefined"){
+       
+        if (photosStore.getState().photos.length == 0){
                 const response = (await axios.get<PhotoModel[]> (appConfig.clientUrl));
-                photos = response.data;
+               const  photos = response.data;
                 photosStore.dispatch(createFetchAction(photos));
+                return photos;
         }
-            return photos;
+        else
+            return photosStore.getState().photos;
     }
 
     public async purchasePhoto(photo :PhotoModel){
@@ -63,6 +65,55 @@ class ClientService{
             return (await photos).filter(p => p.price <= maxPrice);
         }
         else return photosStore.getState().photos.filter(p => p.price <= maxPrice);
+    }
+
+
+    public async getByCategory (cat:string){
+        if (photosStore.getState().photos.length == 0){
+           
+            
+                    const response = (await axios.get<PhotoModel[]> (appConfig.clientUrl));
+                   const photos = response.data;
+                photosStore.dispatch(createFetchAction(photos));
+                if (cat == "ALL"){
+                return photos;}
+                else
+                    return photos.filter((p) => p.photoType.valueOf().toString() ===cat);
+
+        }
+        if (cat == "ALL")
+                return photosStore.getState().photos;
+                else{
+        const photos = photosStore.getState().photos.filter((p) => p.photoType.valueOf().toString() === cat);
+        return photos;}
+    }
+
+    public async getByCategoryAndPrice(cat :string , price:number){
+            if (photosStore.getState().photos.length == 0){
+                 const response = (await axios.get<PhotoModel[]> (appConfig.clientUrl));
+                   const allPhotos = response.data;
+                   const photosAfterTwoFilters :PhotoModel[] = [];
+
+                        for (let index = 0; index < allPhotos.length; index++) {
+                            if (allPhotos[index].photoType == cat && allPhotos[index].price <= price)
+                            photosAfterTwoFilters.push(allPhotos[index])}
+
+                            return photosAfterTwoFilters;
+
+            }
+            else{
+                const allPhotos = photosStore.getState().photos;
+                const photosAfterTwoFilters :PhotoModel[] = [];
+
+                        for (let index = 0; index < allPhotos.length; index++) {
+                            if (allPhotos[index].photoType == cat && allPhotos[index].price <= price)
+                            photosAfterTwoFilters.push(allPhotos[index])}
+                            console.log("photos after 2 filters");
+                                
+                            console.log(photosAfterTwoFilters);
+                                
+                            return photosAfterTwoFilters;
+            }
     }
     
 

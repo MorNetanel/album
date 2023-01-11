@@ -18,16 +18,14 @@ class AuthService{
 
     public async login(loginData: LoginData){
         
-        
-        
-        
         const response = axios.post<string>(appConfig.authUrl + "/login",  loginData);
         
-        
-        
         const token = (await response).data;
-        authStore.dispatch(loginAction(token));
+      
         photosStore.dispatch(createClearAction());
+    
+        authStore.dispatch(loginAction(token));
+
     }
 
 

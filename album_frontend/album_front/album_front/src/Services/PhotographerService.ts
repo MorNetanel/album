@@ -25,15 +25,16 @@ class PhotographerService{
     }
 
     public async getAllPhotos(){
+        console.log("get all photos");
+        
+        const photographerId:number = authStore.getState().user.id;
         if (photosStore.getState().photos.length ==0 && authStore.getState().user.clientType == "PHOTOGRAPHER" ){
         const response = axios.get<PhotoModel[]>(appConfig.photographerUrl);
-        const photos = (await response).data;
+        const photos = (await response).data.filter(p =>p.photographer.id == photographerId );
         photosStore.dispatch(createFetchAction((photos)));
         return photos;
         }
         else{
-            const photographerId:number = authStore.getState().user.id;
-            console.log(photographerId);
             
             return photosStore.getState().photos.filter(photo => photo.photographer.id == photographerId);
         }
@@ -65,24 +66,38 @@ class PhotographerService{
         
 
     public async getPhoto(id: number){
+        const photographerId:number = authStore.getState().user.id;
         const photo = photosStore.getState().photos.find(photo=> photo.id == id);
-        if (typeof photo === "undefined"){
-            console.log(id);
-            
+        if (typeof photo === "undefined"){            
         return (await axios.get<PhotoModel>(appConfig.photographerUrl + "/photo/" + id)).data;}
         return photo;
     }
-
-
-
-
-
 
     public async deletePhoto(id: number){
         const response = (await axios.delete(appConfig.photographerUrl+ "/" +id)).data;
         photosStore.dispatch(createDeleteAction(id));
         return response;
     }
+
+
+    public async getByCategory (cat:string){
+        const photographerId:number = authStore.getState().user.id;
+        if (photosStore.getState().photos.length == 0){
+                    const response = (await axios.get<PhotoModel[]> (appConfig.photographerUrl));
+                   const photos = response.data.filter(photo => photo.photographer.id == photographerId);
+                photosStore.dispatch(createFetchAction(photos));
+                if (cat == "ALL"){
+                                 return photos;}
+                                else
+                    return photos.filter((p) => p.photoType.valueOf().toString() ===cat);
+        }
+        if (cat == "ALL")
+                return photosStore.getState().photos;
+                else{           
+        const photos = photosStore.getState().photos.filter((p) => p.photoType.valueOf().toString() === cat);
+        return photos;}
+    }
+
 
     public async updatePhoto(photo:PhotoModel){
       
