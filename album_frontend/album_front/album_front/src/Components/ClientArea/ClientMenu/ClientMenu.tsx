@@ -6,6 +6,7 @@ function ClientMenu(): JSX.Element {
         <div className="ClientMenu">
 			
             <NavLink className=" NavLink"  to="/client/details">My Details</NavLink>
+            <NavLink className=" NavLink"  to="/client/purchased">My Photos</NavLink>
      
         </div>
     );

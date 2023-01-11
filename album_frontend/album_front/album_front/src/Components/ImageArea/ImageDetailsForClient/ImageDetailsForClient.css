@@ -35,10 +35,14 @@
 }
 
 .linkPurchase{
-    font-size: 450%;
+    font-size: 300%;
     color: black;
     position: relative;
     top: 500px;
     font-weight: bolder;
    
+}
+
+.photographerName{
+font-size:40px;
 }

@@ -2,11 +2,12 @@ import axios from "axios";
 import PhotoModel from "../Models/Photo";
 import PhotographerModel from "../Models/Photographer";
 import { authStore } from "../Redux/AuthState";
-import { purchasedPhotosStore } from "../Redux/PhotosPurchasedState";
+import { createFetchPurchasedAction, purchasedPhotosStore } from "../Redux/PhotosPurchasedState";
 import { createAddPhotoAction, createFetchAction, photosStore } from "../Redux/PhotosState";
 import appConfig from "../Util/Config";
 import notificationService from "./NotificationService";
 import { createPurchasePhotoAction } from "../Redux/PhotosPurchasedState";
+import PurchasedPhotos from "../Components/ClientArea/PurchasedPhotos/PurchasedPhotos";
 
 
 class ClientService{
@@ -93,25 +94,15 @@ class ClientService{
                  const response = (await axios.get<PhotoModel[]> (appConfig.clientUrl));
                    const allPhotos = response.data;
                    const photosAfterTwoFilters :PhotoModel[] = [];
-
                         for (let index = 0; index < allPhotos.length; index++) {
                             if (allPhotos[index].photoType == cat && allPhotos[index].price <= price)
                             photosAfterTwoFilters.push(allPhotos[index])}
-
-                            return photosAfterTwoFilters;
-
-            }
-            else{
+                            return photosAfterTwoFilters;}else{
                 const allPhotos = photosStore.getState().photos;
                 const photosAfterTwoFilters :PhotoModel[] = [];
-
                         for (let index = 0; index < allPhotos.length; index++) {
                             if (allPhotos[index].photoType == cat && allPhotos[index].price <= price)
                             photosAfterTwoFilters.push(allPhotos[index])}
-                            console.log("photos after 2 filters");
-                                
-                            console.log(photosAfterTwoFilters);
-                                
                             return photosAfterTwoFilters;
             }
     }
@@ -131,6 +122,24 @@ class ClientService{
             }
 
     }
+
+    public async getAllPurchasedPhotos(){
+        if (purchasedPhotosStore.getState().photos.length == 0){
+            const response = axios.get<PhotoModel[]>(appConfig.clientUrl + "/purchased");
+            const purchasedPhotos = (await response).data;
+           
+            console.log(purchasedPhotos);
+            
+            purchasedPhotosStore.dispatch(createFetchPurchasedAction(purchasedPhotos));
+            return purchasedPhotos;
+        }
+        else {
+            const purchased = purchasedPhotosStore.getState().photos;
+            return purchased;
+        }
+    }
+
+   
 
     
     

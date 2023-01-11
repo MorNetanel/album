@@ -61,7 +61,6 @@ function Home(): JSX.Element {
                 if (client.includes("CLIENT")){
                     
                     if (price < 2001){
-                        console.log(price);
                         clientService.getByMaxPrice(price)
                         .then(photos => setPhotos(photos))
                 .catch(err => {notificationService.error(err)})

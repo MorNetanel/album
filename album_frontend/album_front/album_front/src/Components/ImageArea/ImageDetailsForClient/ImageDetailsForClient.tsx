@@ -47,10 +47,13 @@ function ImageDetailsForClient(): JSX.Element {
         <div className="ImageDetailsForClient">
 			{photo && <>
             <div><h2>{photo.name}</h2>
+            <span className="photographerName"> By {photo.photographer.firstName } </span>
+            <span className="photographerName">{ photo.photographer.lastName}</span><br/>
             <span>Type: </span><h4>{photo.photoType}</h4>
             <span>Date: </span><h4>{photo.dateTime.toString()}</h4>
             <span>location: </span><h4>{photo.location}</h4>
             <span>Price: </span><h4>{photo.price}</h4></div>
+            
             
             <img src={URL.createObjectURL(convertDataUrlToBlob(photo.image))}/>
                        

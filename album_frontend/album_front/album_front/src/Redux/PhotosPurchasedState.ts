@@ -17,7 +17,7 @@ export interface PhotosAction {
     payload?:any
 }
 
-export function createFetchAction(photos:PhotoModel[]){
+export function createFetchPurchasedAction(photos:PhotoModel[]){
     return{type:PhotosActionType.FetchPurchasedPhotos, payload:photos}
 }
 

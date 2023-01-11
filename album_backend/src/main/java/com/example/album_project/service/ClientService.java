@@ -102,6 +102,7 @@ public class ClientService extends AppUserService {
     }
 
     public List<Photo> getAllPurchasedPhotos(){
+        System.out.println(photoRepository.getAllPurchasedPhotosByClientId(id));
 
         return photoRepository.getAllPurchasedPhotosByClientId(id);
     }

@@ -71,6 +71,7 @@ public class ClientController {
 
     @GetMapping("/purchased")
     public List<Photo> getAllPurchasedPhotos(){
+        System.out.println(clientService.getAllPurchasedPhotos());
         return clientService.getAllPurchasedPhotos();
     }
 
