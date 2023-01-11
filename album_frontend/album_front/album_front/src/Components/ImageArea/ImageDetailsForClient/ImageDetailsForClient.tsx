@@ -31,6 +31,16 @@ function ImageDetailsForClient(): JSX.Element {
         .catch(err=>notificationService.error(err))
     }, []);
 
+    function purchasePhoto(){
+        clientService.purchasePhoto(photo)
+        .then(() =>{
+            notificationService.success("Photo Purchased");
+            
+            navigate("/home");
+        })
+        .catch( err=>notificationService.error(err) )
+    }
+
 
     
     return (
@@ -42,9 +52,9 @@ function ImageDetailsForClient(): JSX.Element {
             <span>location: </span><h4>{photo.location}</h4>
             <span>Price: </span><h4>{photo.price}</h4></div>
             
-            <img src={URL.createObjectURL(convertDataUrlToBlob(photo.image))}/><br/>
+            <img src={URL.createObjectURL(convertDataUrlToBlob(photo.image))}/>
                        
-            
+            <Link className="linkPurchase Image" to="" onClick={purchasePhoto} >Purchase Photo</Link>
             
             </>}
         </div>

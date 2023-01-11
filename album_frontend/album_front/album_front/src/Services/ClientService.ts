@@ -52,7 +52,7 @@ class ClientService{
         if (purchasedPhotosStore.getState().photos.includes(photo))
         return false;
         else{
-            const response = axios.post<PhotoModel>(appConfig.clientUrl);
+            const response = axios.post<PhotoModel>(appConfig.clientUrl, photo);
             const photoPurcased = (await response).data;
             purchasedPhotosStore.dispatch(createPurchasePhotoAction(photoPurcased));
             return photoPurcased;
@@ -115,6 +115,24 @@ class ClientService{
                             return photosAfterTwoFilters;
             }
     }
+
+    public async getPhotosByPhotographerName(photographerFirstName :string, photographerLastName :string){
+        if (photosStore.getState().photos.length == 0){
+            const response = (await axios.get<PhotoModel[]> (appConfig.clientUrl));
+                   const allPhotos = response.data;
+                   const photosByPhotographerName = allPhotos.
+                   filter(p =>p.photographer.firstName == photographerFirstName && p.photographer.lastName == photographerLastName)
+                    photosStore.dispatch(createFetchAction(allPhotos));
+                    return photosByPhotographerName;
+        }
+            else{
+                const photosByPhotographerName = photosStore.getState().photos.filter(p => p.photographer.firstName == photographerFirstName);
+            return photosByPhotographerName;
+            }
+
+    }
+
+    
     
 
 

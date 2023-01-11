@@ -33,3 +33,12 @@
 .ImageDetailsForClient div span{
     font-size: 200%;
 }
+
+.linkPurchase{
+    font-size: 450%;
+    color: black;
+    position: relative;
+    top: 500px;
+    font-weight: bolder;
+   
+}

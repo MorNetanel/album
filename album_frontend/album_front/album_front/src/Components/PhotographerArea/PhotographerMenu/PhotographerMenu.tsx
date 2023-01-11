@@ -19,7 +19,7 @@ function PhotographerMenu(): JSX.Element {
     return (
         <div className="PhotographerMenu">
 			
-            <NavLink className=" NavLink"  to="/photographer/details">Details</NavLink>
+            <NavLink className=" NavLink"  to="/photographer/details">My Details</NavLink>
             <NavLink className=" NavLink"  to="/photographer/add">Add photo</NavLink>
         </div>
     );

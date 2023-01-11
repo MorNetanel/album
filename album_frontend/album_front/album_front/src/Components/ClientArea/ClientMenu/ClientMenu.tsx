@@ -5,7 +5,7 @@ function ClientMenu(): JSX.Element {
     return (
         <div className="ClientMenu">
 			
-            <NavLink className=" NavLink"  to="/client/details">Details</NavLink>
+            <NavLink className=" NavLink"  to="/client/details">My Details</NavLink>
      
         </div>
     );

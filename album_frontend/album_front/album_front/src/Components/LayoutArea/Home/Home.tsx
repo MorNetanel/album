@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import PhotoModel from "../../../Models/Photo";
 import "./Home.css";
 import homeService from "../../../Services/HomeService";
@@ -26,7 +26,7 @@ function Home(): JSX.Element {
     const tokenDecoded = JSON.stringify(authStore.getState().user);
 
     const client = tokenDecoded.substring(tokenDecoded.indexOf("clienttype:")+1, tokenDecoded.lastIndexOf("iss"));
-    const[price, setPhotoPrice] = useState<number>(2000);
+    const[price, setPhotoPrice] = useState<number>(2001);
     const [category, setCategory] = useState<string>("ALL");
 
     const [photos, setPhotos ] = useState<PhotoModel[]>([]);
@@ -59,11 +59,22 @@ function Home(): JSX.Element {
             useEffect(()=>{
                 //CLIENT
                 if (client.includes("CLIENT")){
+                    
+                    if (price < 2001){
+                        console.log(price);
+                        clientService.getByMaxPrice(price)
+                        .then(photos => setPhotos(photos))
+                .catch(err => {notificationService.error(err)})
+                    }
+                    if (price == 2001){
                         clientService.getAllPhotos()
                     .then(photos => setPhotos(photos))
-                .catch(err => {notificationService.error(err)})}
+                .catch(err => {notificationService.error(err)})}}
                 }
-                ,[]);
+                ,[price]);
+
+
+              
 
                 
 
@@ -115,15 +126,16 @@ const [clientType , setClientType] = useState<string>();
 
             {client.includes("CLIENT") && <>
             
-            {/* <div className="price">
-                <label htmlFor="customRange3" className="form-label">Price</label>
-                <input onChange={(p) => setPhotoPrice(+p.target.value)} type="range" className="form-range" min="0" max="100"  id="customRange3"/>
-                <span className="price">{price}</span><br/>
+            <div className="Price">
+                <label htmlFor="customRange3" className="form-label">Show by price : </label>
+                <span className="pric">{price}</span><br/>
+                <input onChange={(p) => setPhotoPrice(+p.target.value)} type="range" className="form-range" min="0" max="2000"  id="customRange3"/>
+                
                 </div>
 
 
 
-                <select name="category" className="category" onChange={(cat) =>setCategory(cat.target.value) } >
+                {/* <select name="category" className="category" onChange={(cat) =>setCategory(cat.target.value) } >
                 
                 <option value="ALL">All CATEGORIES</option>
                
@@ -146,12 +158,19 @@ const [clientType , setClientType] = useState<string>();
                     <option value="FOOD">FOOD</option>
                     <option value="ARCHITECTURE">ARCHITECTURE</option>
                 </select> */}
+                
+               
+                
 
 			<div className="Photo ">{photos.map(photo => <ImageCard key={photo.id} photo = {photo} /> )}</div>
             
 
                 
                  </>}
+
+
+
+
             {authStore.getState().token == null && <>
              <div className="Photo ">{photos.map(photo => <ImageCard key={photo.id} photo = {photo} /> )}</div></>}
         </div>
