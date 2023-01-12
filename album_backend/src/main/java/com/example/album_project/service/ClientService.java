@@ -17,8 +17,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 @Slf4j
@@ -102,7 +104,7 @@ public class ClientService extends AppUserService {
     }
 
     public List<Photo> getAllPurchasedPhotos(){
-        System.out.println(photoRepository.getAllPurchasedPhotosByClientId(id));
+    List<Photo> all = photoRepository.findAll();
 
         return photoRepository.getAllPurchasedPhotosByClientId(id);
     }

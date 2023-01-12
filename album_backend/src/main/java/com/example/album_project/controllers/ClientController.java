@@ -8,13 +8,14 @@ import com.example.album_project.service.ClientService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Array;
 import java.time.LocalDate;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @RestController
 @RequestMapping("/client")
 @AllArgsConstructor
+@CrossOrigin
 public class ClientController {
 
     private ClientService clientService;
@@ -25,17 +26,17 @@ public class ClientController {
     }
 
     @GetMapping("/photo/{id}")
-    public Optional<Photo>getOnePhoto(@PathVariable int id) throws ClientException {
+    public Optional<Photo> getOnePhoto(@PathVariable int id) throws ClientException {
         return Optional.of(clientService.getOnePhoto(id));
     }
 
     @GetMapping
-    public List<Photo> getAllPhotos(){
+    public List<Photo> getAllPhotos() {
         return clientService.getAllPhotos();
     }
 
     @GetMapping("/price")
-    public List<Photo> getPhotosBetweenPrices(@RequestParam double min, @RequestParam double max){
+    public List<Photo> getPhotosBetweenPrices(@RequestParam double min, @RequestParam double max) {
         return clientService.getPhotosBetweenPrices(min, max);
     }
 
@@ -45,23 +46,24 @@ public class ClientController {
     }
 
     @GetMapping("/type")
-    public List<Photo> getPhotosByType(@RequestParam PhotoType photoType){
+    public List<Photo> getPhotosByType(@RequestParam PhotoType photoType) {
         return clientService.getPhotosByType(photoType);
     }
 
     @GetMapping("/dates")
-    public List<Photo> getPhotosByDates(@RequestBody LocalDate startDate, @RequestBody LocalDate endDate){
+    public List<Photo> getPhotosByDates(@RequestBody LocalDate startDate, @RequestBody LocalDate endDate) {
         return clientService.getPhotosByDates(startDate, endDate);
     }
 
     @GetMapping("/location")
-    public List<Photo> getPhotosByLocation(@RequestParam String location){
+    public List<Photo> getPhotosByLocation(@RequestParam String location) {
         return clientService.getPhotosByLocation(location);
     }
 
     @GetMapping("/photographer")
     public List<Photo> getPhotosByPhotographer(@RequestParam String fName, @RequestParam String lName) throws ClientException {
-        return clientService.getPhotosByPhotographer(fName, lName);    }
+        return clientService.getPhotosByPhotographer(fName, lName);
+    }
 
     @PostMapping
     public Optional<Photo> purchasePhoto(@RequestBody Photo photo) throws ClientException {
@@ -69,11 +71,13 @@ public class ClientController {
 
     }
 
+
     @GetMapping("/purchased")
-    public List<Photo> getAllPurchasedPhotos(){
-        System.out.println(clientService.getAllPurchasedPhotos());
+    public List<Photo> getPurchased(){
         return clientService.getAllPurchasedPhotos();
     }
+
+
 
 
 }

@@ -23,20 +23,24 @@ public class TokenFilter extends OncePerRequestFilter {
 
             String token = request.getHeader("authorization")
                     .replace("Bearer ", "");
-           
+
 
             String email = JWT.decode(token).getClaim("email").asString();
             String username = JWT.decode(token).getClaim("username").asString();
             String appUserType = JWT.decode(token).getClaim("client type").asString();
-            log.info("succeed to decode token for user : {}" , username );
+
             filterChain.doFilter(request, response);
+            System.out.println("do filter");
 
 
 
 
 
         }catch (Exception e){
-            log.error("Failed to decode token");
+            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!" +
+                    ""                                      +401+"" +
+                                                                         "!!!!!!!!!!!!!!!!!!!!!!!!!");
+
             response.setStatus(401);
 
         }
@@ -47,6 +51,6 @@ public class TokenFilter extends OncePerRequestFilter {
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
         String path = request.getRequestURI();
-        return path.startsWith("/auth/login") || path.startsWith("/auth/register") || path.startsWith("/home") ;
+        return  path.startsWith("/auth/login") || path.startsWith("/auth/register") || path.startsWith("/home")  ;
     }
 }

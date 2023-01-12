@@ -24,7 +24,7 @@ public class SessionRemover {
     public void removeSession(){
         Date now = new Date(System.currentTimeMillis());
         //remove session
-        sessions.entrySet().removeIf(session -> now.getTime() > session.getValue().getLastActive() + (1000 *10));
+        sessions.entrySet().removeIf(session -> now.getTime() > session.getValue().getLastActive() + (1000 *60 * 60 * 24));
 
     }
 

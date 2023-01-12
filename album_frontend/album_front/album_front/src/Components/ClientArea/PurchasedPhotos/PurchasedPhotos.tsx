@@ -5,15 +5,18 @@ import clientService from "../../../Services/ClientService";
 import notificationService from "../../../Services/NotificationService";
 import ImageCard from "../../ImageArea/ImageCard/ImageCard";
 import { authStore } from "../../../Redux/AuthState";
+import homeService from "../../../Services/HomeService";
 
 function PurchasedPhotos(): JSX.Element {
     
    
-    const [photos, setPurchasedPhotos ] = useState<PhotoModel[]>([]);
+    const [photos, setPhotos ] = useState<PhotoModel[]>([]);
     useEffect(()=>{
-    
-                clientService.getAllPurchasedPhotos()
-            .then(photos=> setPurchasedPhotos(photos))
+          
+          
+    //    homeService.getPhotosOffline()
+       clientService.getAllPurchasedPhotos()
+            .then(photos => setPhotos(photos))
         .catch(err => {notificationService.error(err)})
         }
         ,[]);
@@ -25,9 +28,8 @@ function PurchasedPhotos(): JSX.Element {
            
      
 
-        <div>Purchased</div>
-             <div className="Photo ">{photos.map(photo => <ImageCard key={photo.id} photo = {photo} /> )}</div>
-        
+            <div>{Array.isArray(photos) ? "yes"  : "no"}</div>
+            <div className="Photo ">{photos.map(photo => <ImageCard key={photo.id} photo = {photo} /> )}</div>
       
 
                 

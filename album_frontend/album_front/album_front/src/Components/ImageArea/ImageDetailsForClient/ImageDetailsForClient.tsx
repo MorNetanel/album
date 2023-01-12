@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import PhotoModel from "../../../Models/Photo";
 import clientService from "../../../Services/ClientService";
 import notificationService from "../../../Services/NotificationService";
+import { purchasedPhotosStore } from "../../../Redux/PhotosPurchasedState";
 function ImageDetailsForClient(): JSX.Element {
 
 
@@ -42,6 +43,21 @@ function ImageDetailsForClient(): JSX.Element {
     }
 
 
+    function purchased() :boolean {
+                const purchasedPhotos = purchasedPhotosStore.getState().photos;
+                var boole: boolean = false;
+                purchasedPhotos.forEach(p =>{
+                    if (isPhotoEqual(p , photo))
+                    boole = true  ;
+                });
+                return boole ;
+    }
+
+    function isPhotoEqual(p1 :PhotoModel, p2 :PhotoModel){
+        return p1.id == p2.id;
+    }
+
+
     
     return (
         <div className="ImageDetailsForClient">
@@ -56,8 +72,10 @@ function ImageDetailsForClient(): JSX.Element {
             
             
             <img src={URL.createObjectURL(convertDataUrlToBlob(photo.image))}/>
-                       
-            <Link className="linkPurchase Image" to="" onClick={purchasePhoto} >Purchase Photo</Link>
+               {! purchased() && <>
+                <Link className="linkPurchase Image" to="" onClick={purchasePhoto} >Purchase Photo</Link>   
+               </>}        
+            {/* <Link className="linkPurchase Image" to="" onClick={purchasePhoto} >Purchase Photo</Link> */}
             
             </>}
         </div>

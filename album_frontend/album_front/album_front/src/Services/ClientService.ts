@@ -124,17 +124,19 @@ class ClientService{
     }
 
     public async getAllPurchasedPhotos(){
+
+        // const response = axios.get<PhotoModel[]>(appConfig.clientUrl + "/purchased" );
+        // const purchasedPhotos = (await response).data;
+       
+        // return purchasedPhotos;
         if (purchasedPhotosStore.getState().photos.length == 0){
             const response = axios.get<PhotoModel[]>(appConfig.clientUrl + "/purchased");
             const purchasedPhotos = (await response).data;
-           
-            console.log(purchasedPhotos);
-            
             purchasedPhotosStore.dispatch(createFetchPurchasedAction(purchasedPhotos));
             return purchasedPhotos;
         }
         else {
-            const purchased = purchasedPhotosStore.getState().photos;
+            const purchased :PhotoModel[] = purchasedPhotosStore.getState().photos;
             return purchased;
         }
     }
